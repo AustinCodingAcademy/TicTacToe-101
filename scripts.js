@@ -44,7 +44,8 @@ const addMarker = (id) => {
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
+  console.log (id);
+  document.getElementById(id).innerHTML =currentMarker;
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
@@ -83,7 +84,7 @@ const changeMarker = () => {
 
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
-  
+  squares = document.getElementsByTagName("TD");
   // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
       // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
     
