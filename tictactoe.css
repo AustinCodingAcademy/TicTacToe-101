@@ -1,14 +1,19 @@
 .jumbotron {
-  margin: 5% auto;
-  margin-left: 43%;
+  text-align: center;
+  align-content: center;
 }
-
+button{
+  background-color: tomato;
+  color: ivory;
+}
 td {
   height:150px;
   width:150px;
   text-align: center;
-  border: 5px solid black;
+  border: 5px solid rgb(207, 206, 206);
   font-size: 100px;
+  background-color: rgb(124, 174, 221);
+  color: ivory;
 }
 
 table {
