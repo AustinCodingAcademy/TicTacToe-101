@@ -16,10 +16,12 @@
     * Don't move on until you understand how that works.
 1. Now read each of the green comment lines to start piecing together how this app works.
 1. After you have a general understanding find the `// @TODO` comments and fix the problems described.
-1. Go to the HTML file and create all the rows you need for a complete Tic Tac Toe board
+1. Go to the HTML file and create all the rows you need for a complete Tic Tac Toe board.
 1. When you've finished create a Pull Request(*PR*) on the original repo and turn in the URL of that PR.
 
 *******
+
+## Follow-Up Video
 
 <iframe src="https://player.vimeo.com/video/395004475" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
