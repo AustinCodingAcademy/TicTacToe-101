@@ -56,6 +56,7 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
+}
   const checkForWin = () => {
     if(horizontalWin() || verticalWin() || diagonalWin()) {
       window.alert(`Player ${currentMarker} won!`)
@@ -65,17 +66,38 @@ const addMarker = (id) => {
   }
 
   const horizontalWin = () => {
-    // Your code here to check for horizontal wins
-  }
+    if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")){
+      console.log('We have a winner!');
+    } if ((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")){
+      console.log('We have a winner!');
+    } if ((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")){
+      console.log('You have won the game!');
 
-  const verticalWin = () => {
-    // Your code here to check for vertical wins
-  }
-
-  const diagonalWin = () => {
-    // Your code here to check for diagonal wins
   }
 }
+
+  const verticalWin = () => {
+    if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")){
+      console.log('We have a winner!');
+    }
+    if((board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") || (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")){
+      console.log('We have a winner!');
+    }
+    if((board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")){
+      console.log('We have a winner!');
+    }
+  }
+  
+
+  const diagonalWin = () => {
+    if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")){
+      console.log('We have a winner!');
+    }
+    if((board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") || (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O")){
+      console.log('We have a winner!');
+    }
+  }
+
 
 
 
@@ -126,5 +148,4 @@ const resetBoard = () => {
 
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
-  }  
-}
+  }
