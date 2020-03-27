@@ -6,21 +6,20 @@ let board = [
   ["", "", ""]
 ]
 
-
 let currentMarker = 'X'
 const handleClick = (element) => {
-  console.log(`The element you clicked on has an id:  ${element.id}`)
+  console.log(`The element you clicked on has an id:  ${element.id}`);
   if(!document.getElementById(element.id).innerHTML){
     addMarker(element.id); 
   }
 }
 
-const addMarker = (id) => {
-  const row = parseInt(element.id.charAt(0))
-  const column = parseInt(element.id.charAt(2))
+const addMarker = (id) => { 
+  const row = parseInt(id.charAt(0))
+  const column = parseInt(id.charAt(2))
   board[row][column] = currentMarker
-  console.log(`*** The current marker is:  ${currentMarker}. ***`)
-  console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
+  console.log(`*** The current marker is:  ${currentMarker}. ***`);
+  console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`);
   console.log(id);
   document.getElementById(id).innerHTML = currentMarker;
 }
