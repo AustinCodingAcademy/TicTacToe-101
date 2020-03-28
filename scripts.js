@@ -34,48 +34,36 @@ const addMarker = (id) => {
 
   const horizontalWin = () => {
     if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")){
-      console.log('We have a winner!');
+      (window.alert(`Player ${currentMarker} won!`));
     } if ((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")){
-      console.log('We have a winner!');
+      (window.alert(`Player ${currentMarker} won!`));
     } if ((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")){
-      console.log('We have a winner!');
+      (window.alert(`Player ${currentMarker} won!`));
 
   }
 }
 
   const verticalWin = () => {
     if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")){
-      console.log('We have a winner!');
+      (window.alert(`Player ${currentMarker} won!`));
     }
     if((board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") || (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")){
-      console.log('We have a winner!');
+      (window.alert(`Player ${currentMarker} won!`));
     }
     if((board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")){
-      console.log('We have a winner!');
+      (window.alert(`Player ${currentMarker} won!`));
     }
   }
   
 
   const diagonalWin = () => {
     if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")){
-      console.log('We have a winner!');
+      (window.alert(`Player ${currentMarker} won!`));
     }
     if((board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") || (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O")){
-      console.log('We have a winner!');
+      (window.alert(`Player ${currentMarker} won!`));
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-// This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
 const changeMarker = () => {
   if(currentMarker === "X"){
     currentMarker = "O"
@@ -83,17 +71,6 @@ const changeMarker = () => {
     currentMarker = "X"
   }
 }
-
-
-
-
-
-
-
-
-
-
-// This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
   console.log()
   const squares = document.getElementsByTagName("td");
@@ -101,4 +78,10 @@ const resetBoard = () => {
     console.log(squares[i].id)
     squares[i].innerHTML = null
   }
+  board = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""]
+  ]
+  currentMarker = 'X'
 }
