@@ -1,3 +1,9 @@
+const board = [
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""]
+]
+
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = 'X'
 
@@ -18,7 +24,13 @@ const addMarker = (id) => {
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
   document.getElementById(id).innerHTML = currentMarker
 
-  changeMarker()
+
+
+  const row = parseInt(id.charAt(0));
+  const column = parseInt(id.charAt(2));
+  board[row][column] = currentMarker
+
+  checkForWin()
 }
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
@@ -45,4 +57,26 @@ const resetBoard = () => {
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
   }  
+}
+
+
+
+const horizontalWin = () => {
+  if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O"));
+}
+
+const verticalWin = () => {
+  if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O"));
+}
+
+const diagonalWin = () => {
+  if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O"));
+}
+
+const checkForWin = () => {
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    alert(`Player ${currentMarker} won!`)
+  } else {
+    changeMarker()
+  }
 }
