@@ -7,10 +7,16 @@ td {
   height:150px;
   width:150px;
   text-align: center;
-  border: 5px solid black;
   font-size: 100px;
+  border: 1px solid;
 }
 
-table {
-  margin: auto auto;
+table{
+  margin: auto auto
+}
+tr{
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  margin: 0;
+  padding: 0;
 }
