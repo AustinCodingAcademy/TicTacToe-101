@@ -1,4 +1,51 @@
 
+
+
+/*
+
+
+const getPosts = () => {
+  return fetch('people.json')
+    .then(res => res.json())
+    .then(posts => console.log(posts))
+}
+
+//getPosts()
+
+let post = {
+  firstName: 'My Fetch Title',
+  lastname: 'My Fetch body',
+  id: 999
+}
+
+let newPost = post => {
+  let options = {
+    method: 'POST',
+    body: JSON.stringify(post),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    })
+  }
+  //return fetch('http://jsonplaceholder.typicode.com/posts', options)
+  return fetch('people.json', options)
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(error => console.error(`MyError: ${error}`))
+}
+
+
+
+newPost(post)
+
+*/
+
+
+
+
+
+
+
+
 let a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 let p = document.createElement('p')
 let wh = "50px"
@@ -11,7 +58,7 @@ let createTable = () => {
 
   let addCell = (tr, v) => {
     let td = document.createElement('td');
-    td.id = v;    
+    td.id = v;
     tr.appendChild(td);
   };
 
@@ -111,3 +158,4 @@ let createPandBtn = () => {
 }
 
 createPandBtn()
+
