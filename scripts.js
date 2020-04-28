@@ -43,6 +43,7 @@ const addMarker = (id) => {
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
+  document.getElementById(id).innerHTML = currentMarker;
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
   
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
@@ -89,7 +90,9 @@ const resetBoard = () => {
     
   // @TODO-3.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // squares
-  // .getElementsByTagName("TD")
+  var i,squares;
+  squares = document.getElementsByTagName("td");
+
   // =
   // document
   // const
