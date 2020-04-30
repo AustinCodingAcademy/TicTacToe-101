@@ -6,7 +6,7 @@
     <!-- link to CSS code -->
     <link rel="stylesheet" href="tictactoe.css">
     <!-- link to JavaScript code -->
-    <script src="scripts.js"></script>
+    
   </head>
   <body>
     <div class="container">
@@ -20,12 +20,14 @@
         <tr>
           <!-- the onclick calls a function called "handleClick" and passes itself to it -->
           <td id='top-left' onclick="handleClick(this)" ></td>
-          <td id='top-middle'></td>
-          <td></td>
-        </tr>
+          <td id='top-middle' onclick="handleClick(this)" ></td>
+          <td id="one" onclick="handleClick(this)" ></td>
+          <td id="two" onclick="handleClick(this)" ></td>
+          <td id="three" onclick="handleClick(this)"></td>
         <!-- @TODO create new rows and cells for the rest of your TTT board. -->
         <!-- @TODO give each new cell an id & an event listener to call the "handleClick" function -->
       </table>
     </div>
+    <script src="scripts.js"></script>
   </body>
 </html>
