@@ -53,6 +53,11 @@ const resetBoard = () => {
     console.log(squares[i].id)
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
+
+    board = [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""]]
   }  
 }
 
