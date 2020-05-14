@@ -9,10 +9,14 @@
     <script src="scripts.js"></script>
   </head>
   <body>
+    <div id="winner_message"> You Win</div>
+    <div id="winner_message2">You Win</div>
+    <div id="imageback"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Welcome to Tic Tac Toe</h1>
-        <p>Get ready to play!</p>
+        <h1>Welcome to Political Tic Tac Toe</h1>
+        <p>Play X if you are a Republican</p>
+        <p>Play O if you are a Democrat</p>
         <!-- uses the built-in onclick attribute to call the resetBoard function -->
         <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
       </div>
@@ -37,6 +41,8 @@
         </tr>
 
       </table>
+     
     </div>
+  
   </body>
 </html>
