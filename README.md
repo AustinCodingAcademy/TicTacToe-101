@@ -2,7 +2,7 @@
 
 ## Instructions
 
-1. Fork and clone the [TicTacToe-101 Repo](https://github.com/AustinCodingAcademy/calculator-app-101)
+1. Fork and clone the [TicTacToe-101 Repo](https://github.com/AustinCodingAcademy/TicTacToe-101)
 1. Use Live-Server to open this folder in the browser.
 1. Open your Chrome inspector tool and select the Console tab.
 1. Deselect the "Select an element in the page to inspect" tool - *so you don't have highlights chasing your cursor*.
