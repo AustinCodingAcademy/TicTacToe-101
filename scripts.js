@@ -1,4 +1,94 @@
-//       ***********************
+let board = [["","",""], ["","",""], ["","",""]]
+
+let currentMarker = 'X'
+
+const insertMarker = (element) => {
+  console.log('The current board is: ' + board)
+  console.log(`The element you clicked on has an id:  ${element.id}`)
+    if(!document.getElementById(element.id).innerHTML){
+      addMarker(element.id)
+    }
+}
+
+const addMarker = (id) => {
+  console.log(`*** The current marker is:  ${currentMarker}. ***`)
+  console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
+  
+  document.getElementById(id).innerHTML = currentMarker
+
+  let row = parseInt(id.charAt(0))
+  let column = parseInt(id.charAt(2))
+  
+  board[row][column] = currentMarker
+
+  checkForWin(board)
+}
+
+const changeMarker = () => {
+  if(currentMarker === "X"){
+    currentMarker = "O"
+  } else {
+    currentMarker = "X"
+  }
+}
+
+const resetBoard = () => {
+  const squares = document.getElementsByTagName("TD")
+  for (i = 0; i < squares.length; i++) {
+    squares[i].innerHTML = null
+  }
+
+  for (r = 0; r < 3; r++) {
+    for (c = 0; c < 3; c++) {
+      board[r][c] = ""
+    }
+  }
+}
+
+const checkForWin = (board) => {
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    window.alert('Player ' + currentMarker + ' won!')
+  } else {
+    changeMarker()
+  }
+}
+
+const horizontalWin = () => {
+  let win = false
+  for (r = 0; r < 3; r++) {
+    if ((board[r][0] == 'X' && board[r][1] == 'X' && board[r][2] == 'X') || (board[r][0] == 'O' && board[r][1] == 'O' && board[r][2] == 'O')) {
+      win = true
+    }
+  }
+  return win
+}
+
+const verticalWin = () => {
+  let win = false
+  for (c = 0; c < 3; c++) {
+    if ((board[0][c] == 'X' && board[1][c] == 'X' && board[2][c] == 'X') || (board[0][c] == 'O' && board[1][c] == 'O' && board[2][c] == 'O')) {
+      win = true
+    }
+  }
+  return win
+}
+
+const diagonalWin = () => {
+  let win = false
+  if ((board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X') || (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')) {
+    win = true
+  }
+  else if ((board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X') || (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')) {
+    win = true
+  }
+  return win
+}
+
+
+
+
+
+/*//       ***********************
 //            INSTRUCTIONS
 //       ***********************
 
@@ -80,4 +170,4 @@ const resetBoard = () => {
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
   }  
-}
+} */
