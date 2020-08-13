@@ -16,26 +16,15 @@
         <!-- uses the built-in onclick attribute to call the resetBoard function -->
         <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
       </div>
-
-      <table align="center">
+      <table>
         <tr>
-          <!-- each table-data (td) has an id that matches it's position in the array or arrays [0][1] -->
-          <!-- the onclick calls a function called handleClick and passes itself to the "handleClick" function -->
-          <td id='0-0' onclick="handleClick(this)" ></td>
-          <td id='0-1' onclick="handleClick(this)" ></td>
-          <!-- @TODO each of the cells will need to have an event listener to call the "handleClick" function -->
-          <td id='0-2'></td>
+          <!-- the onclick calls a function called "handleClick" and passes itself to it -->
+          <td id='top-left' onclick="handleClick(this)" ></td>
+          <td id='top-middle' onclick="handleClick(this)"></td>
+          <td id='top-right' onclick="handleClick(this)"></td>
         </tr>
-        <tr>
-          <td id='1-0'></td>
-          <td id='1-1'></td>
-          <td id='1-2'></td>
-        </tr>
-        <tr>
-          <td id='2-0'></td>
-          <td id='2-1'></td>
-          <td id='2-2'></td>
-        </tr>
+        <!-- @TODO create new rows and cells for the rest of your TTT board. -->
+        <!-- @TODO give each new cell an id & an event listener to call the "handleClick" function -->
       </table>
     </div>
   </body>
