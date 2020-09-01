@@ -32,10 +32,6 @@ const handleClick = (element) => {
 
 
 
-
-
-
-
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
 
@@ -49,7 +45,8 @@ const addMarker = (id) => {
   // = currentMarker
   // .getElementById(id)
   // document
-  // .innerHTML 
+  // .innerHTML
+  document.getElementById(id).innerHTML = currentMarker
 
   changeMarker()
 }
@@ -93,6 +90,8 @@ const resetBoard = () => {
   // =
   // document
   // const
+  
+    const squares = document.getElementsByTagName("td")
   
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
