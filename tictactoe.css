@@ -1,6 +1,9 @@
 .jumbotron {
-  margin: 5% auto;
-  margin-left: 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 td {
