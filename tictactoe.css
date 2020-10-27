@@ -9,6 +9,7 @@ td {
   text-align: center;
   border: 5px solid black;
   font-size: 100px;
+  background-color: aqua;
 }
 
 table {

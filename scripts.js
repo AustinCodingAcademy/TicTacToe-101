@@ -6,7 +6,7 @@
 // 2. Look for the @TODOs, and figure out how to fix them.
     // next to each @TODO you will find tasks that need to be finished
 
-// The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
+// The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked
 let currentMarker = 'X'
 
 
@@ -43,13 +43,8 @@ const addMarker = (id) => {
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
-  // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
+  document.getElementById(id).innerHTML = currentMarker
   
-  // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
-  // = currentMarker
-  // .getElementById(id)
-  // document
-  // .innerHTML 
 
   changeMarker()
 }
@@ -65,6 +60,7 @@ const addMarker = (id) => {
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
 const changeMarker = () => {
+  console.log(currentMarker === "X")
   if(currentMarker === "X"){
     currentMarker = "O"
   } else {
@@ -87,7 +83,9 @@ const resetBoard = () => {
   // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
       // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
     
+      const squares = document.getElementsByTagName("td")
   // @TODO-3.5: MIX & MATCH, You will need the following pieces of code to build that line:
+
   // squares
   // .getElementsByTagName("TD")
   // =
@@ -104,3 +102,4 @@ const resetBoard = () => {
     squares[i].innerHTML = null
   }  
 }
+
