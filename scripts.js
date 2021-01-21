@@ -1,3 +1,9 @@
+let board = [
+  ["","",""],
+  ["","",""],
+  ["","",""]
+]
+
 let currentMarker = 'X'
 
 
@@ -6,7 +12,7 @@ const handleClick = (element) => {
   console.log(`The element you clicked on has an id:  ${element.id}`)
   
   if(!document.getElementById(element.id).innerHTML){
-    addMarker(element.id)
+    addMarker(element)
     
   }
 }
@@ -14,16 +20,23 @@ const handleClick = (element) => {
 
 
 
-const addMarker = (id) => {
+const addMarker = (element) => {
 
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
-  console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
+  console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${element.id}`)
 
-  document.getElementById(id).innerHTML = currentMarker
-  changeMarker()
+  element.innerHTML = currentMarker
+  
+  setBoard(element)
+
+  checkForWin()
 }
 
-
+const setBoard = (element) => {
+  const row = parseInt(element.id.charAt(0))
+  const column = parseInt(element.id.charAt(2))
+  board[row][column] = currentMarker
+}
 
 const changeMarker = () => {
   if(currentMarker === "X"){
@@ -31,29 +44,62 @@ const changeMarker = () => {
   } else {
     currentMarker = "X"
   }
+  
 }
 
 
 
 const resetBoard = () => {
-  
-  // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
-      // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
+ 
     const squares = document.getElementsByTagName("TD")
-  // @TODO-3.5: MIX & MATCH, You will need the following pieces of code to build that line:
-  // squares
-  // .getElementsByTagName("TD")
-  // =
-  // document
-  // const
-  
-  // loops over the HTML Collection of TDs and clears out the Xs and Os
+ 
   for (i=0; i < squares.length; i++) {
 
-    // will log out the id of each square as it loops over them.
     console.log(squares[i].id)
 
-    // sets the innerHTML to null to replace the "X" or "O"
+    
     squares[i].innerHTML = null
+
+    board = [
+      ["","",""],
+      ["","",""],
+      ["","",""]
+    ]
+
   }  
 }
+
+
+const checkForWin = () => {
+  console.log("horizontalWin",horizontalWin())
+  console.log("verticalWin",verticalWin())
+  console.log("diagonalWin",diagonalWin())
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    setTimeout(() => {
+      window.alert(`Player ${currentMarker} won!`)
+    }, 100);
+  } else {
+    changeMarker()
+  }
+}
+
+const horizontalWin = () => {
+  if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")) {return true}
+  else if((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")) {return true}
+  else if((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")) {return true}
+  else {return false}
+}
+
+function verticalWin() {
+  if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")) {return true}
+  else if((board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") || (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")) {return true}
+  else if((board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")) {return true}
+  else {return false}
+}
+
+const diagonalWin = () => {
+ if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")) {return true}
+  else if((board[2][0] == "X" && board[1][1] == "X" && board[0][2] == "X") || (board[2][0] == "O" && board[1][1] == "O" && board[0][2] == "O")) {return true}
+  else {return false}
+}
+
