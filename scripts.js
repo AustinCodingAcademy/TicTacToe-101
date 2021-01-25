@@ -1,8 +1,8 @@
 
 const board= 
-[["0-0","0-1","0-2",],
-["1-0", "1-1", "1-2"], 
-["2-0", "2-1","2-2"]]
+[["","","",],
+["", "", ""], 
+["", "",""]]
 
 const row = parseInt(element.id.charAt(0))
 const column = parseInt(element.id.charAt(2))
@@ -14,7 +14,6 @@ let currentMarker = 'X'
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
 const handleClick = (element) => {
 
-
   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
   console.log(`The element you clicked on has an id:  ${element.id}`)
 
@@ -24,7 +23,6 @@ const handleClick = (element) => {
     addMarker(element.id)
   }
 }
-
 
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
@@ -37,7 +35,6 @@ const addMarker = (id) => {
 
   changeMarker()
 }
-
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
 const changeMarker = () => {
