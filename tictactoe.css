@@ -1,6 +1,42 @@
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+}
+
 .jumbotron {
-  margin: 5% auto;
-  margin-left: 43%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 25% 25% 25% 25%;
+  text-align: center;
+  justify-items: center;
+  background-color: rgb(255, 149, 149);
+  padding: 3%;
+  border: 1px dotted black;
+}
+
+h1{
+grid-column: 2/5;
+grid-row: 1/3;
+}
+
+button{
+grid-column: 3/4;
+grid-row: 4/5;
+font-size: 1.5em;
+}
+
+.tic-tac-toe-img1{
+  grid-column: 1/2;
+  grid-row: auto;
+}
+
+.tic-tac-toe-img2{
+  grid-column: 5/6;
+  grid-row: auto;
 }
 
 td {
@@ -9,8 +45,9 @@ td {
   text-align: center;
   border: 5px solid black;
   font-size: 100px;
+  background-color:rgb(240, 212, 212)
 }
 
-table {
-  margin: auto auto;
+.game-board{
+  padding-top: 5%;
 }
