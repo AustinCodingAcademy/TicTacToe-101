@@ -4,8 +4,7 @@ const board=
 ["", "", ""], 
 ["", "",""]]
 
-const row = parseInt(element.id.charAt(0))
-const column = parseInt(element.id.charAt(2))
+
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = 'X'
@@ -13,6 +12,7 @@ let currentMarker = 'X'
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
 const handleClick = (element) => {
+  console.log(element);
 
   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
   console.log(`The element you clicked on has an id:  ${element.id}`)
@@ -26,6 +26,8 @@ const handleClick = (element) => {
 
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
+  const row = parseInt(id.charAt(0));
+  const column = parseInt(id.charAt(2));
 
   board[row][column] = currentMarker
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
@@ -33,7 +35,7 @@ const addMarker = (id) => {
  
   document.getElementById(id).innerHTML = currentMarker
 
-  changeMarker()
+  checkForWin()
 }
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
