@@ -49,6 +49,7 @@ const addMarker = (id) => {
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
   document.getElementById(id).innerHTML = currentMarker
   console.log('good job')
+  
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
@@ -61,7 +62,7 @@ const addMarker = (id) => {
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
 const changeMarker = () => {
-  
+  checkForWin()
   if(currentMarker === "X"){
     currentMarker = "O"
   } else {
@@ -91,28 +92,35 @@ const resetBoard = () => {
 
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
-  }  
+  } 
+  board= [
+    ["","",""],
+    ["","",""],
+    ["","",""]
+  ]
 }
 
 
 const checkForWin = () => {
+  console.log('horizontalWin', horizontalWin)
+  console.log('***********************', horizontalWin() || verticalWin() || diagonalWin()) 
   if(horizontalWin() || verticalWin() || diagonalWin()) {
     window.alert(`Player ${currentMarker} won!`)
-  } else {
-    changeMarker()
-  }
+  } //else {
+    //changeMarker()
+ // }
 }
 
 const horizontalWin = () => {
-  if((board[0][0] == "X" && board[0][1] == "" && board[0][2] == "X") || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")) {
+  if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")) {
     return true
-  } else if ((board[1][0] == "X" && board[1][1] == "" && board[1][2] == "X") || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")) {
+  } else if ((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")) {
     return true
-  } else if ((board[2][0] == "X" && board[2][1] == "" && board[2][2] == "X") || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")) {
+  } else if ((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")) {
     return true
+  } else {
+    return false
   }
-  
-  
 } 
 
 const verticalWin = () => {
@@ -122,6 +130,8 @@ const verticalWin = () => {
     return true
   } else if ((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")) {
     return true
+  } else {
+    return false
   }
 }
 
@@ -130,5 +140,7 @@ const diagonalWin = () => {
     return true
   } else if ((board[2][0] == "X" && board[1][1] == "X" && board[0][2] == "X") || (board[2][0] == "O" && board[1][1] == "O" && board[0][2] == "O")) {
     return true
-  } 
+  } else {
+    return false
+  }
 }
