@@ -27,15 +27,6 @@ const handleClick = (element) => {
 }
 
 
-
-
-
-
-
-
-
-
-
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
 
@@ -44,23 +35,10 @@ const addMarker = (id) => {
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
-  // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
-  // = currentMarker
-  // .getElementById(id)
-  // document
-  // .innerHTML 
+  document.getElementById(id).innerHTML = currentMarker;
 
   changeMarker()
 }
-
-
-
-
-
-
-
-
 
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
@@ -69,16 +47,10 @@ const changeMarker = () => {
     currentMarker = "O"
   } else {
     currentMarker = "X"
+    checkWin();
   }
+  
 }
-
-
-
-
-
-
-
-
 
 
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
@@ -86,13 +58,7 @@ const resetBoard = () => {
   
   // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
       // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
-    
-  // @TODO-3.5: MIX & MATCH, You will need the following pieces of code to build that line:
-  // squares
-  // .getElementsByTagName("TD")
-  // =
-  // document
-  // const
+    const squares = document.getElementsByTagName("TD");
   
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
@@ -103,4 +69,41 @@ const resetBoard = () => {
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
   }  
+}
+
+function checkWin(){
+  topLeft = document.getElementById('top-left').innerHTML;
+  topMid = document.getElementById('top-middle').innerHTML;
+  topRight = document.getElementById('top-right').innerHTML;
+  midLeft = document.getElementById('middle-left').innerHTML;
+  midMid = document.getElementById('middle-middle').innerHTML;
+  midRight = document.getElementById('middle-right').innerHTML;
+  topLeft = document.getElementById('bottom-left').innerHTML;
+  topMid = document.getElementById('bottom-middle').innerHTML;
+  topRight = document.getElementById('bottom-right').innerHTML;
+
+  if(topLeft == currentMarker && topMid == currentMarker && topRight == currentMarker){
+    alert(currentMarker + " wins!");
+  }
+  else if(midLeft == currentMarker && midMid == currentMarker && midRight == currentMarker){
+    alert(currentMarker + " wins!");
+  }
+  else if(botLeft == currentMarker && botMid == currentMarker && botRight == currentMarker){
+    alert(currentMarker + " wins!");
+  }
+  else if(topLeft == currentMarker && midLeft == currentMarker && botLeft == currentMarker){
+    alert(currentMarker + " wins!");
+  }
+  else if(topMid == currentMarker && midMid == currentMarker && botMid == currentMarker){
+    alert(currentMarker + " wins!");
+  }
+  else if(topRight == currentMarker && midRight == currentMarker && botRight == currentMarker){
+    alert(currentMarker + " wins!");
+  }
+  else if(topLeft == currentMarker && midMid == currentMarker && botRight == currentMarker){
+    alert(currentMarker + " wins!");
+  }
+  else if(topRight == currentMarker && midMid == currentMarker && botLeft == currentMarker){
+    alert(currentMarker + " wins!");
+  }
 }
