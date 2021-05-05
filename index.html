@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Tic Tac Toe</title>
-    <!-- link to CSS code -->
+  <  <!-- link to CSS code -->>
     <link rel="stylesheet" href="tictactoe.css">
     <!-- link to JavaScript code -->
     <script src="scripts.js"></script>
@@ -20,8 +20,8 @@
         <tr>
           <!-- the onclick calls a function called "handleClick" and passes itself to it -->
           <td id='top-left' onclick="handleClick(this)" ></td>
-          <td id='top-middle'></td>
-          <td></td>
+          <td id='top-middle' onclick="handleClick(this)"></td>
+          <td id="top-right" onclick="handleClick(this)"></td>
         </tr>
         <!-- @TODO create new rows and cells for the rest of your TTT board. -->
         <!-- @TODO give each new cell an id & an event listener to call the "handleClick" function -->
