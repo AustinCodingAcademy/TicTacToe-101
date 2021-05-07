@@ -51,7 +51,7 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
-
+  document.getElementById(id).interHTML = currentMarker
   changeMarker()
 }
 
@@ -94,12 +94,15 @@ const resetBoard = () => {
   // =
   // document
   // const
-  
+  const squares = document.getElementsByTagName('td')
+  console.log('squares:', squares)
+  console.log('squares.length:', squares.length)
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
 
     // will log out the id of each square as it loops over them.
     console.log(squares[i].id)
+    console.log('squares[i].id', squares[i].id)
 
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
