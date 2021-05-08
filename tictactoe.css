@@ -1,16 +1,54 @@
 .jumbotron {
   margin: 5% auto;
-  margin-left: 43%;
+  display: grid;
+  justify-items: center;
+  border: 2px solid black;
 }
 
 td {
   height:150px;
   width:150px;
   text-align: center;
-  border: 5px solid black;
+  border: 5px solid rgb(5, 5, 5);
   font-size: 100px;
 }
 
 table {
   margin: auto auto;
 }
+
+table tr{
+  display: grid;
+  grid-template-columns: 1fr 33% 1fr;
+  grid-template-rows: auto; 
+  align-content: center;
+  /* grid-template-areas: 
+      "header header header header header"
+      ". nav nav . .."
+      ". table table table ."
+      ". table table table ."
+      ". table table table ."
+      "footer footer footer footer ."; */
+}
+
+/* #top-left {
+  
+  grid-column: 1/2;
+  grid-row: 1/2;
+} 
+
+#top-middle {
+  
+  grid-column: 2/3;
+  grid-row: 1/2;
+} 
+
+#top-right {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}  */
+
+
+
+
+
