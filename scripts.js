@@ -105,3 +105,7 @@ const resetBoard = () => {
     squares[i].innerHTML = null
   }
 }
+
+
+console.log (document.getElementsByTagName("h1"));
+
