@@ -43,15 +43,18 @@ const addMarker = (id) => {
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
+
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
+  let element = document.getElementById(id)
+  element.innerHTML = currentMarker
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
   // document
   // .innerHTML 
 
-  changeMarker()
+
+  changeMarker() 
 }
 
 
