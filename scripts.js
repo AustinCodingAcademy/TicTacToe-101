@@ -2,6 +2,12 @@
 //            INSTRUCTIONS
 //       ***********************
 
+
+let board = [["","",""],
+            ["","",""],
+            ["","",""]]
+
+          
 // 1. Read the code below one block at a time.
 // 2. Look for the @TODOs, and figure out how to fix them.
     // next to each @TODO you will find tasks that need to be finished
@@ -27,44 +33,37 @@ const handleClick = (element) => {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
+//let element = document.getElementById(id)
+
 const addMarker = (id) => {
+  console.log(id)
+  let element = document.getElementById(id)
+  const row = parseInt(element.id.charAt(0))
+  const column = parseInt(element.id.charAt(2))
+  board[row][column] = currentMarker
+   console.log(board)
+   console.log(row)
+   console.log(column)
 
   // @TODO-1: Open the console tab in your Chrome Inspector Tool and click on the top-left square to see what's logged to the console. 
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  let element = document.getElementById(id)
+  
+  //let element = document.getElementById(id)
+  
   console.log("*************************element:", element)
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
   // document
   // .innerHTML 
-  document.getElementById(id).innerHTML = currentMarker
+  document.getElementById(thisIsId).innerHTML = currentMarker
 
   changeMarker()
 }
-
-
-
-
-
-
-
-
-
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
 const changeMarker = () => {
@@ -74,15 +73,6 @@ const changeMarker = () => {
     currentMarker = "X"
   }
 }
-
-
-
-
-
-
-
-
-
 
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
@@ -107,3 +97,49 @@ const resetBoard = () => {
     squares[i].innerHTML = null
   }  
 }
+
+const checkForWin = () => {
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    window.alert(`Player ${currentMarker} won!`)
+  } else {
+    changeMarker()
+  }
+}
+
+
+
+// const horizontalWin = () => {
+// if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+// || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
+// )
+// if((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") 
+// || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
+// )
+// if((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") 
+// || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
+// )
+// }
+
+// const verticalWin = () => {
+// if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
+// || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
+// )
+// if((board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") 
+// || (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")
+// )
+// if((board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") 
+// || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")
+// )
+// }
+
+// const diagonalWin = () => {
+// if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
+// || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+// )
+// if((board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") 
+// || (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O")
+// )
+// }
+
+
+
