@@ -7,9 +7,13 @@
     // next to each @TODO you will find tasks that need to be finished
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
+
 let currentMarker = 'X'
 
-
+let board = 
+    [["","",""],
+    ["","",""],
+    ["","",""]];
 
 
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
@@ -38,6 +42,14 @@ const handleClick = (element) => {
 
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
+  console.log(id)
+  let element = document.getElementById(id)
+  const row = parseInt(element.id.charAt(0))
+  const column = parseInt(element.id.charAt(2))
+  board[row][column] = currentMarker
+  console.log(board)
+  console.log(row)
+  console.log(column)
 
   // @TODO-1: Open the console tab in your Chrome Inspector Tool and click on the top-left square to see what's logged to the console. 
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
@@ -45,14 +57,13 @@ const addMarker = (id) => {
   
 
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  let element = document.getElementById(id)
+  
   element.innerHTML = currentMarker
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
   // document
   // .innerHTML 
-
 
   changeMarker() 
 }
@@ -108,3 +119,33 @@ const resetBoard = () => {
     squares[i].innerHTML = null
   }  
 }
+
+// const checkForWin = () => {
+//   if(horizontalWin() || verticalWin() || diagonalWin()) {
+//     window.alert(`Player ${currentMarker} won!`)
+//   } else {
+//     changeMarker()
+//   }
+// }
+
+// const horizontalWin = () => {
+//   if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+//   || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
+// )
+// if((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") 
+//         || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
+//     )
+// if((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") 
+//         || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
+//     )
+
+//   // Your code here to check for horizontal wins
+// }
+
+// const verticalWin = () => {
+//   // Your code here to check for vertical wins
+// }
+
+// const diagonalWin = () => {
+//   // Your code here to check for diagonal wins
+// }
