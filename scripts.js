@@ -81,3 +81,12 @@ let resetBoard = () => {
     squares[i].innerHTML = null
   }  
 }
+
+let board =[  [0,1,2]
+              [0,1,2]
+              [0,1,2]
+]
+
+if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
+        || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
+    )
