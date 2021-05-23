@@ -64,8 +64,9 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
-
-  changeMarker() 
+  
+  checkForWin() 
+  console.log(checkForWin)
 }
 
 
@@ -120,32 +121,58 @@ const resetBoard = () => {
   }  
 }
 
-// const checkForWin = () => {
-//   if(horizontalWin() || verticalWin() || diagonalWin()) {
-//     window.alert(`Player ${currentMarker} won!`)
-//   } else {
-//     changeMarker()
-//   }
-// }
+const checkForWin = () => {
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    window.alert(`Player ${currentMarker} won!`)
+    location.reload();
+  } else {
+    changeMarker()
+  }
+}
 
-// const horizontalWin = () => {
-//   if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
-//   || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
-// )
-// if((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") 
-//         || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
-//     )
-// if((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") 
-//         || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
-//     )
+const horizontalWin = () => {
 
-//   // Your code here to check for horizontal wins
-// }
+  // Your code here to check for horizontal wins
+  if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+  || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
+)
+{return checkForWin;}
+else if((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") 
+  || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
+    )
+    {return checkForWin;}
+else if((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") 
+        || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
+    )
+    
+    {return checkForWin;}
+}
 
-// const verticalWin = () => {
-//   // Your code here to check for vertical wins
-// }
 
-// const diagonalWin = () => {
-//   // Your code here to check for diagonal wins
-// }
+const verticalWin = () => {
+  // Your code here to check for vertical wins
+  if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
+  || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
+    )
+    {return checkForWin}
+  else if((board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") 
+  || (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")
+    )
+    {return checkForWin}
+  else if((board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") 
+ ||  (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")
+    )
+    {return checkForWin}
+}
+
+const diagonalWin = () => {
+  // Your code here to check for diagonal wins
+  if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
+        || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+    )
+    {return checkForWin}
+  else if((board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") 
+        || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
+    )
+    {return checkForWin}
+}
