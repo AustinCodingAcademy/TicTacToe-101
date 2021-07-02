@@ -1,19 +1,58 @@
+body {
+  background: #14213d;
+
+}
 .jumbotron {
   margin: 5% auto;
-  /* margin-left: 43%;*/
   display: flex; 
   flex-direction: column;
   align-items: center;
+  color: #fca311;
 }
 
 td {
   height:150px;
   width:150px;
   text-align: center;
-  border: 5px solid black;
+  border: 5px solid #fca311;
   font-size: 100px;
+  background-color: #e5e5e5;
+  color: #14213d;
 }
 
 table {
   margin: auto auto 30px auto;
+}
+
+button {
+  background-color: #e5e5e5;
+  
+  display:inline-block;
+  padding:0.5em 3em;
+  border:0.16em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color: #14213d;
+  text-align:center;
+  transition: all 0.15s;
+}
+  button:hover{
+  color: #fca311;
+  border-color:#DDDDDD;
+  text-shadow: 1px 1px #14213d;
+  }
+  button:active{
+  color: #fca311;
+  border-color:#BBBBBB;
+  text-shadow: #14213d;
+  }
+  @media all and (max-width:30em){
+   button {
+    display:block;
+    margin:0.4em auto;
+   }
 }
