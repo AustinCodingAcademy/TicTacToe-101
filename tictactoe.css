@@ -1,6 +1,10 @@
 .jumbotron {
   margin: 5% auto;
-  margin-left: 43%;
+  text-align: center;
+}
+
+.jumbotron >P {
+  color:red
 }
 
 td {
@@ -9,8 +13,50 @@ td {
   text-align: center;
   border: 5px solid black;
   font-size: 100px;
+  z-index: 940;
 }
 
 table {
   margin: auto auto;
+
+}
+
+
+#winner_message {
+  font-size: 40px;
+  position: absolute;
+  background-image: url(./images/trump.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 200px;
+  display: none;
+  text-align: center;
+  width: 100%;
+  height: 700px;
+  border: 3px solid #73AD21;
+  color: white;
+
+}
+
+#winner_message2 {
+  font-size: 40px;
+  position: absolute;
+  background-image: url(./images/biden.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 200px;
+  display: none;
+  text-align: center;
+  width: 100%;
+  height: 700px;
+  border: 3px solid #73AD21;
+  color: white;
+
+}
+
+#imageback {
+  height: 100px;
+  background-image: url(./images/Console-Tab-Example.png);
+  display: none;
+  
 }
