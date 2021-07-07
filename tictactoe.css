@@ -1,16 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Potta+One&display=swap");
+
+html {
+  background-color: steelblue;
+  color: darkblue;
+  font-family: "Potta One", sans-serif;
+}
+
 .jumbotron {
-  margin: 5% auto;
-  margin-left: 43%;
+  text-align: center;
+  /* margin: auto; */
+  /* margin-left: 43%; */
 }
 
 td {
-  height:150px;
-  width:150px;
+  height: 150px;
+  width: 150px;
   text-align: center;
   border: 5px solid black;
   font-size: 100px;
+  color: springgreen;
 }
 
 table {
-  margin: auto auto;
+  margin: auto;
+}
+
+h1 {
+  font-size: 7rem;
+  margin: 0;
+}
+
+h3 {
+  color: darkmagenta;
+  margin-top: 5px;
+  font-size: 3rem;
+}
+
+button {
+  font-family: "Potta One", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: bisque;
+  color: steelblue;
+  border-radius: 0.75rem;
+  border: 5px solid red;
+  text-decoration: none;
+  outline: none;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: thistle;
+  border: 5px solid darkmagenta;
+}
+
+button:active {
+  background-color: springgreen;
+  box-shadow: 0 2px orange;
+  transform: translateY(2px);
 }
