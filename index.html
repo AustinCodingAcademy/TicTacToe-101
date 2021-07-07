@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Tic Tac Toe</title>
-    <!-- link to CSS code -->
     <link rel="stylesheet" href="tictactoe.css">
-    <!-- link to JavaScript code -->
     <script src="scripts.js"></script>
   </head>
   <body>
@@ -13,18 +11,24 @@
       <div class="jumbotron">
         <h1>Welcome to Tic Tac Toe</h1>
         <p>Get ready to play!</p>
-        <!-- uses the built-in onclick attribute to call the resetBoard function -->
         <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
       </div>
       <table>
         <tr>
-          <!-- the onclick calls a function called "handleClick" and passes itself to it -->
-          <td id='top-left' onclick="handleClick(this)" ></td>
-          <td id='top-middle'></td>
-          <td></td>
+          <td id='0-0' onclick="handleClick(this)"></td>
+          <td id='0-1' onclick="handleClick(this)"></td>
+          <td id='0-2' onclick="handleClick(this)"></td>
         </tr>
-        <!-- @TODO create new rows and cells for the rest of your TTT board. -->
-        <!-- @TODO give each new cell an id & an event listener to call the "handleClick" function -->
+        <tr>
+          <td id='1-0' onclick="handleClick(this)"></td>
+          <td id='1-1' onclick="handleClick(this)"></td>
+          <td id='1-2' onclick="handleClick(this)"></td>
+        </tr>
+        <tr>
+          <td id='2-0' onclick="handleClick(this)"></td>
+          <td id='2-1' onclick="handleClick(this)"></td>
+          <td id='2-2' onclick="handleClick(this)"></td>
+        </tr>
       </table>
     </div>
   </body>
