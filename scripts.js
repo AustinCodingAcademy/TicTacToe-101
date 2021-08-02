@@ -51,8 +51,9 @@ const addMarker = (id) => {
   // document
   // .innerHTML 
 
-  changeMarker()
-}
+  document.getElementById(id).innerHTML = currentMarker;
+  changeMarker();
+};
 
 
 
@@ -81,6 +82,7 @@ const changeMarker = () => {
 
 
 
+
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
   
@@ -93,7 +95,7 @@ const resetBoard = () => {
   // =
   // document
   // const
-  
+  const squares = document.querySelectorAll('td');
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
 
