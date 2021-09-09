@@ -1,14 +1,11 @@
-//       ***********************
-//            INSTRUCTIONS
-//       ***********************
 
-// 1. Read the code below one block at a time.
-// 2. Look for the @TODOs, and figure out how to fix them.
-    // next to each @TODO you will find tasks that need to be finished
+let board = [
+  ["", "", ""], // <-- Row 1, index 0
+  ["", "", ""], // <-- Row 2, index 1
+  ["", "", ""] // <-- Row 3, index 2
+]
 
-// The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = 'X'
-
 
 
 
@@ -35,7 +32,6 @@ const handleClick = (element) => {
 
 
 
-
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
 
@@ -43,15 +39,14 @@ const addMarker = (id) => {
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
-  // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
+  const row = parseInt(id.charAt(0))
+  const column = parseInt(id.charAt(2))
+  console.log("This is row ", row, " This is a column ", column);
+  document.getElementById(id).innerHTML = currentMarker;
   
-  // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
-  // = currentMarker
-  // .getElementById(id)
-  // document
-  // .innerHTML 
 
-  changeMarker()
+  board[row][column] = currentMarker; 
+  checkForWin();
 }
 
 
@@ -70,6 +65,7 @@ const changeMarker = () => {
   } else {
     currentMarker = "X"
   }
+
 }
 
 
@@ -81,19 +77,22 @@ const changeMarker = () => {
 
 
 
+
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
-const resetBoard = () => {
+const resetBoard = () => { 
   
   // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
       // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
-    
+    const square = document.getElementsByTagName("td");
+    console.log("td Collection", square)
   // @TODO-3.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // squares
   // .getElementsByTagName("TD")
   // =
   // document
   // const
-  
+  const squares = document.querySelectorAll('td');
+  console.log("ACA code ", squares)
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
 
@@ -103,4 +102,105 @@ const resetBoard = () => {
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
   }  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Horizontal */
+const horizontalWin = () => {
+  // Your code here to check for horizontal wins
+  console.log("check for horizontal win")
+
+if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+|| (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O"))
+{
+  console.log ('row 1')
+ return true 
+} 
+
+ 
+if((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") 
+|| (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
+) {
+  console.log ('row 2')
+  return true 
+}
+
+if((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") 
+|| (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
+) {
+  console.log ('row 3')
+  return true 
+}
+}
+/*Vertical */
+
+const verticalWin = () => {
+  // Your code here to check for vertical wins
+
+
+if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
+|| (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
+){
+console.log('verical row 1')
+return true 
+}
+
+if((board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") 
+|| (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")
+) {
+console.log("vertical row 2")
+return true 
+}
+
+if((board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") 
+|| (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")
+) {
+  console.log("vertical row 3")
+  return true 
+} 
+}
+
+/* Diaganol */
+
+const diagonalWin = () => {
+  // Your code here to check for diagonal wins
+
+
+if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
+|| (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+){
+return true
+}
+
+if((board[2][0] == "X" && board[1][1] == "X" && board[0][2] == "X") 
+|| (board[2][0] == "O" && board[1][1] == "O" && board[0][2] == "O")
+){
+  return true
+}
+
+}
+
+
+const checkForWin = () => {
+  console.log("check for win")
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    window.alert(`Player ${currentMarker} won!`)
+  } else {
+    changeMarker()
+  }
 }
