@@ -20,8 +20,20 @@
         <tr>
           <!-- the onclick calls a function called "handleClick" and passes itself to it -->
           <td id='top-left' onclick="handleClick(this)" ></td>
-          <td id='top-middle'></td>
-          <td></td>
+          <td id='top-middle' onclick="handleClick(this)"></td>
+          <td id='top-right' onclick="handleClick(this)"></td>
+        </tr>
+        <tr>
+          <!-- the onclick calls a function called "handleClick" and passes itself to it -->
+          <td id='middle-left' onclick="handleClick(this)" ></td>
+          <td id='middle-middle' onclick="handleClick(this)"></td>
+          <td id='middle-right' onclick="handleClick(this)"></td>
+        </tr>
+        <tr>
+          <!-- the onclick calls a function called "handleClick" and passes itself to it -->
+          <td id='bottom-left' onclick="handleClick(this)" ></td>
+          <td id='bottom-middle' onclick="handleClick(this)"></td>
+          <td id='bottom-right' onclick="handleClick(this)"></td>
         </tr>
         <!-- @TODO create new rows and cells for the rest of your TTT board. -->
         <!-- @TODO give each new cell an id & an event listener to call the "handleClick" function -->
