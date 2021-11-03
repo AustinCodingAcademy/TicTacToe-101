@@ -1,6 +1,21 @@
+
+
 .jumbotron {
   margin: 5% auto;
-  margin-left: 43%;
+  margin-left: 1%;
+  text-align: center;
+
+ 
+}
+
+h1 { 
+  font-size: 40px;
+  
+}
+
+p {
+  font-size: 25px;
+
 }
 
 td {
@@ -9,8 +24,10 @@ td {
   text-align: center;
   border: 5px solid black;
   font-size: 100px;
+  color: gray;
 }
 
 table {
+  background-color: aliceblue;
   margin: auto auto;
 }
