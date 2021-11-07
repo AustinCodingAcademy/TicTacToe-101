@@ -106,6 +106,7 @@ const changeMarker = () => {
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
   const squares= document.getElementsByTagName("td") 
+  console.log("the board was cleared")
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
 
@@ -151,8 +152,25 @@ const resetBoard = () => {
 
   const verticalWin = () => {
     // Your code here to check for vertical wins
+    if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")) {
+      return true
+    }else if((board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") || (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")) {
+      return true 
+    }else if((board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")) {
+      return true
+    }else {
+      return false
+    }
   }
 
+  
   const diagonalWin = () => {
     // Your code here to check for diagonal wins
+    if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")) {
+      return true
+    }else if((board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") || (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O")) {
+      return true
+    }else {
+      return false
+    }
   }
