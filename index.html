@@ -21,19 +21,21 @@
     <table>
       <tr>
         <!-- the onclick calls a function called "handleClick" and passes itself to it -->
-        <td id="top-left" onclick="handleClick(this)"></td>
-        <td id="top-middle" onclick="handleClick(this)"></td>
-        <td id="top-right" onclick="handleClick(this)"></td>
+        
+        <!-- ids that match their bracket-notation location in the board array. Then you could use the parseInt method to create numbers that you could use to access the arrays and indexes of board: -->
+        <td id="0-0" onclick="handleClick(this)"></td>
+        <td id="0-1" onclick="handleClick(this)"></td>
+        <td id="0-2" onclick="handleClick(this)"></td>
       </tr>
       <tr>
-        <td id="middle-top" onclick="handleClick(this)"></td>
-        <td id="mid-middle" onclick="handleClick(this)"></td>
-        <td id="middle-right" onclick="handleClick(this)"></td>
+        <td id="1-0" onclick="handleClick(this)"></td>
+        <td id="1-1" onclick="handleClick(this)"></td>
+        <td id="1-2" onclick="handleClick(this)"></td>
       </tr>
       <tr>
-        <td id="bottom-left" onclick="handleClick(this)"></td>
-        <td id="bottom-middle" onclick="handleClick(this)"></td>
-        <td id="bottom-rigt" onclick="handleClick(this)"></td>
+        <td id="2-0" onclick="handleClick(this)"></td>
+        <td id="2-1" onclick="handleClick(this)"></td>
+        <td id="2-2" onclick="handleClick(this)"></td>
       </tr>
       <!-- @TODO create new rows and cells for the rest of your TTT board. -->
       <!-- @TODO give each new cell an id & an event listener to call the "handleClick" function -->
