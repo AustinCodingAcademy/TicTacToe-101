@@ -7,8 +7,9 @@
     // next to each @TODO you will find tasks that need to be finished
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
-let currentMarker = 'X'
+let currentMarker = 'X';
 
+let board = [["","",""],["","",""],["","",""]];
 
 
 
@@ -51,7 +52,7 @@ const addMarker = (id) => {
   // document
   // .innerHTML 
 
-  changeMarker()
+  board[row][column] = currentMarker;
 }
 
 
@@ -103,4 +104,24 @@ const resetBoard = () => {
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
   }  
+}
+
+const checkForWin = () => {
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    window.alert(`Player ${currentMarker} won!`)
+  } else {
+    changeMarker()
+  }
+}
+
+const horizontalWin = () => {
+  // Your code here to check for horizontal wins
+}
+
+const verticalWin = () => {
+  // Your code here to check for vertical wins
+}
+
+const diagonalWin = () => {
+  // Your code here to check for diagonal wins
 }
