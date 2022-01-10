@@ -52,9 +52,10 @@ const addMarker = (id) => {
   // document
   // .innerHTML 
 
-  changeMarker()
+  checkForWin();
 
   board[row][column] = currentMarker;
+
 }
 
 
@@ -106,4 +107,40 @@ const resetBoard = () => {
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null;
   }  
+}
+
+
+const checkForWin = () => {
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    window.alert(`Player ${currentMarker} won!`)
+  } else {
+    changeMarker()
+  }
+}
+
+const horizontalWin = () => {
+  if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+  || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")) {
+    window.alert(`Player ${currentMarker} won!`);
+  } else {
+    changeMarker()
+  }
+}
+
+const verticalWin = () => {
+  if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
+  || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")) {
+    window.alert(`Player ${currentMarker} won!`);
+  } else {
+    changeMarker()
+  }
+}
+
+const diagonalWin = () => {
+  if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
+  || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")) {
+    window.alert(`Player ${currentMarker} won!`);
+  } else {
+    changeMarker()
+  }
 }
