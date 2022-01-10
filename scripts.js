@@ -7,7 +7,8 @@
     // next to each @TODO you will find tasks that need to be finished
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
-let currentMarker = 'X'
+let currentMarker = 'X';
+let board = [["", "", ""],["", "", ""],["", "", ""]];
 
 
 
@@ -22,7 +23,7 @@ const handleClick = (element) => {
   // this next line prevents an X being changed to an O or an O being changed to an X by...
   //  checking to see if the square clicked has anything in it, if not continue
   if(!document.getElementById(element.id).innerHTML){
-    addMarker(element.id)
+    addMarker(element.id);
   }
 }
 
@@ -52,6 +53,8 @@ const addMarker = (id) => {
   // .innerHTML 
 
   changeMarker()
+
+  board[row][column] = currentMarker;
 }
 
 
@@ -66,9 +69,9 @@ const addMarker = (id) => {
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
 const changeMarker = () => {
   if(currentMarker === "X"){
-    currentMarker = "O"
+    currentMarker = "O";
   } else {
-    currentMarker = "X"
+    currentMarker = "X";
   }
 }
 
@@ -98,9 +101,9 @@ const resetBoard = () => {
   for (i=0; i < squares.length; i++) {
 
     // will log out the id of each square as it loops over them.
-    console.log(squares[i].id)
+    console.log(squares[i].id);
 
     // sets the innerHTML to null to replace the "X" or "O"
-    squares[i].innerHTML = null
+    squares[i].innerHTML = null;
   }  
 }
