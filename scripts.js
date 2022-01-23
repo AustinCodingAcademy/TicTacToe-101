@@ -28,14 +28,6 @@ const handleClick = (element) => {
 
 
 
-
-
-
-
-
-
-
-
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
 
@@ -44,23 +36,15 @@ const addMarker = (id) => {
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
   // document
   // .innerHTML 
+document.getElementById(id).innerHTML = currentMarker 
 
   changeMarker()
 }
-
-
-
-
-
-
-
-
 
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
@@ -71,12 +55,6 @@ const changeMarker = () => {
     currentMarker = "X"
   }
 }
-
-
-
-
-
-
 
 
 
@@ -94,6 +72,7 @@ const resetBoard = () => {
   // document
   // const
   
+  const squares = document.getElementsByTagName("td")
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
 
