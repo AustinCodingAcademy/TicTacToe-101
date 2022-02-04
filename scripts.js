@@ -1,3 +1,9 @@
+let board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
+
 //       ***********************
 //            INSTRUCTIONS
 //       ***********************
@@ -42,28 +48,21 @@ const addMarker = (id) => {
   // @TODO-1: Open the console tab in your Chrome Inspector Tool and click on the top-left square to see what's logged to the console. 
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
-  
-  // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
-  // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
-  // = currentMarker
-  // .getElementById(id)
-  // document
-  // .innerHTML 
 
-  changeMarker()
+  document.getElementById(id).innerHTML = currentMarker
+
+  const row = parseInt(id.charAt(0))
+  const column = parseInt(id.charAt(2))
+
+  board[row][column] = currentMarker
+
+  checkForWin()
 }
 
 
 
 
 
-
-
-
-
-
-// This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
 const changeMarker = () => {
   if(currentMarker === "X"){
     currentMarker = "O"
@@ -84,15 +83,9 @@ const changeMarker = () => {
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
   
-  // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
-      // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
-    
-  // @TODO-3.5: MIX & MATCH, You will need the following pieces of code to build that line:
-  // squares
-  // .getElementsByTagName("TD")
-  // =
-  // document
-  // const
+
+
+  const squares = document.getElementsByTagName("TD")
   
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
@@ -102,5 +95,57 @@ const resetBoard = () => {
 
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
-  }  
+
+    window.location.reload()
+  }
+}
+
+
+
+const checkForWin = () => {
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    window.alert(`Player ${currentMarker} won!`)
+  } else {
+    changeMarker()
+  }
+}
+
+const horizontalWin = () => {
+  if(
+    (board[0][0] == "X" && board[0][1] == "X" && board [0][2] == "X") ||
+    (board[1][0] == "X" && board[1][1] == "X" && board [1][2] == "X") ||
+    (board[2][0] == "X" && board[2][1] == "X" && board [2][2] == "X") ||
+    (board[0][0] == "O" && board[0][1] == "O" && board [0][2] == "O") ||
+    (board[1][0] == "O" && board[1][1] == "O" && board [1][2] == "O") ||
+    (board[2][0] == "O" && board[2][1] == "O" && board [2][2] == "O")
+  ) 
+  return true;
+
+  // Your code here to check for horizontal wins
+}
+
+const verticalWin = () => {
+  if(
+    (board[0][0] == "X" && board[1][0] == "X" && board [2][0] == "X") ||
+    (board[0][1] == "X" && board[1][1] == "X" && board [2][1] == "X") ||
+    (board[0][2] == "X" && board[1][2] == "X" && board [2][2] == "X") ||
+    (board[0][0] == "O" && board[1][0] == "O" && board [2][0] == "O") ||
+    (board[0][1] == "O" && board[1][1] == "O" && board [2][1] == "O") ||
+    (board[0][2] == "O" && board[1][2] == "O" && board [2][2] == "O")
+
+  ) 
+  return true;
+  // Your code here to check for vertical wins
+}
+
+const diagonalWin = () => {
+  if (
+    (board[0][0] == "X" && board[1][1] == "X" && board [2][2] == "X") ||
+    (board[0][2] == "X" && board[1][1] == "X" && board [2][0] == "X") ||
+    (board[0][0] == "O" && board[1][1] == "O" && board [2][2] == "O") ||
+    (board[0][2] == "O" && board[1][1] == "O" && board [2][0] == "O") 
+
+  )
+  return true;
+  // Your code here to check for diagonal wins
 }
