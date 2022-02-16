@@ -19,7 +19,7 @@ const handleClick = (element) => {
   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
   console.log(`The element you clicked on has an id:  ${element.id}`)
 
-  // this next line prevents an X being changed to an O or an O being changed to an X by...
+  // this next line prevents an X being changed to an O or an O being changed to an X by....
   //  checking to see if the square clicked has anything in it, if not continue
   if(!document.getElementById(element.id).innerHTML){
     addMarker(element.id)
