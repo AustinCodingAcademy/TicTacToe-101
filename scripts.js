@@ -2,6 +2,7 @@
 //            INSTRUCTIONS
 //       ***********************
 
+let jumbotron = document.getElementsByClassName("jumbotron")
 // 1. Read the code below one block at a time.
 // 2. Look for the @TODOs, and figure out how to fix them.
     // next to each @TODO you will find tasks that need to be finished
@@ -44,7 +45,7 @@ const addMarker = (id) => {
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
+  let element = document.getElementById(id).innerHTML = currentMarker;
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
