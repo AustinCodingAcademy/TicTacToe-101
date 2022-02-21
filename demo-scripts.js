@@ -1,11 +1,18 @@
-const disappear = () => {
-    console.log("element was clicked")
+const disappear = (element) => {
+    // console.log("element was clicked")
+    
+    document.getElementById(element.id).style.display= "none"
 }
 
+// const disappear ()
 
 // const disappear()
 
+// let pizzaTopping = (selection) => {
 
+// }
+
+// pizzaTopping (sausage)
 
 
 
