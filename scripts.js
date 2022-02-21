@@ -43,6 +43,8 @@ const addMarker = (id) => {
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
   
+document.getElementById(id).innerHTML=currentMarker
+
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
