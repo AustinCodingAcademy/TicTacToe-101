@@ -8,23 +8,44 @@
     <!-- link to JavaScript code -->
     <script src="scripts.js"></script>
   </head>
+
   <body>
     <div class="container">
+
       <div class="jumbotron">
         <h1>Welcome to Tic Tac Toe</h1>
         <p>Get ready to play!</p>
+
         <!-- uses the built-in onclick attribute to call the resetBoard function -->
-        <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
+        <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Reset</button>
+     
       </div>
+
       <table>
+
         <tr>
           <!-- the onclick calls a function called "handleClick" and passes itself to it -->
           <td id='top-left' onclick="handleClick(this)" ></td>
-          <td id='top-middle'></td>
-          <td></td>
+          <td id='top-middle'onclick="handleClick(this)""></td>
+          <td id='top-right'onclick="handleClick(this)""></td>
         </tr>
+
         <!-- @TODO create new rows and cells for the rest of your TTT board. -->
+        <tr>
+          <!-- the onclick calls a function called "handleClick" and passes itself to it -->
+          <td id='mid-left' onclick="handleClick(this)" ></td>
+          <td id='mid-middle'onclick="handleClick(this)""></td>
+          <td id='mid-right'onclick="handleClick(this)""></td>
+        </tr>
+
         <!-- @TODO give each new cell an id & an event listener to call the "handleClick" function -->
+        <tr>
+          <!-- the onclick calls a function called "handleClick" and passes itself to it -->
+          <td id='bottom-left' onclick="handleClick(this)" ></td>
+          <td id='bottom-middle'onclick="handleClick(this)""></td>
+          <td id='bottom-right'onclick="handleClick(this)""></td>
+        </tr>
+
       </table>
     </div>
   </body>
