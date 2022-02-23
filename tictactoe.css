@@ -9,7 +9,30 @@ td {
   text-align: center;
   border: 5px solid black;
   font-size: 100px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  /* display: inline-grid;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3; */
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto; 
+  grid-column: auto auto auto; */
 }
+
+/* .top, .second, .bottom { */
+  /* display: inline-grid;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3; */
+/* display: flex;
+justify-content: center;
+align-items: center; */
 
 table {
   margin: auto auto;
