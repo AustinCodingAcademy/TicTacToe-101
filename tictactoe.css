@@ -9,8 +9,8 @@ td {
   text-align: center;
   border: 5px solid black;
   font-size: 100px;
-  display: grid;
-  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  /* display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr); */
   /* display: inline-grid;
   grid-column-start: 1;
   grid-column-end: 3;
