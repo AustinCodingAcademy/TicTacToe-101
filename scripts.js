@@ -9,7 +9,10 @@ console.log('jumbotron:', jumbotron)
 // 2. Look for the @TODOs, and figure out how to fix them.
     // next to each @TODO you will find tasks that need to be finished
 
-// The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
+    
+
+
+    // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = 'X'
 
 
@@ -108,3 +111,15 @@ const resetBoard = () => {
     squares[i].innerHTML = null
   }  
 }
+
+///////// Winner Rules //////////
+
+let board = [
+  ["","",""],
+  ["","",""],
+  ["","",""]
+]
+
+if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+|| (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
+)
