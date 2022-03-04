@@ -8,6 +8,11 @@
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = 'X'
+let board = [
+  ["","",""],
+  ["","",""],
+  ["","",""]
+]
 
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
@@ -20,6 +25,7 @@ console.log("this is the element",element)
   //  checking to see if the square clicked has anything in it, if not continue
   if(!document.getElementById(element.id).innerHTML){
     addMarker(element.id)
+    board[row][column] = currentMarker
   }
 }
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
@@ -48,9 +54,15 @@ const changeMarker = () => {
   }
 }
 
-
-
-
+if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+        || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
+    )
+    if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
+    || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
+)
+if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
+|| (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+)
 
 
 
