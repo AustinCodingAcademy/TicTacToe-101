@@ -7,9 +7,7 @@
     // next to each @TODO you will find tasks that need to be finished
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
-let currentMarker = 'X'
-
-
+let currentMarker = 'X';
 
 
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
@@ -45,6 +43,8 @@ const addMarker = (id) => {
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
   
+document.getElementById(id).innerHTML=currentMarker
+
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
