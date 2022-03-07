@@ -1,6 +1,7 @@
 .jumbotron {
   margin: 5% auto;
   margin-left: 43%;
+  display: block;
 }
 
 td {
