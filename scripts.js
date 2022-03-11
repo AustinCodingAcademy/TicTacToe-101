@@ -6,16 +6,6 @@ let jumbotron = document
 // 2. Look for the @TODOs, and figure out how to fix them.
 // next to each @TODO you will find tasks that need to be finished
 
-let board = [
-  ["","",""],
-  ["","",""],
-  ["","",""]
-]
-console.log(board);
-
-
-
-
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = 'X'
 
@@ -57,8 +47,11 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
+    
   
   checkForWin()
+  // timeFunction()
+  // window.alert(`Player ${currentMarker} won!`)
 }
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
@@ -98,40 +91,65 @@ const resetBoard = () => {
     ["","",""],
     ["","",""]
   ]
+  console.log(board, '*************')
 }
 
 // const checkForWin = () => {
-//   if(document.getElementById("0-0").innerHTML == "X" && document.getElementById("0-1").innerHTML == "X" && document.getElementById("0-2").innerHTML == "X") {
-//     console.log("X is the winner")
-//   }
-// }
-
-// show winner //
-
-
-const checkForWin = () => {
-    if(horizontalWin() || verticalWin() || diagonalWin()) {
+  //   if(document.getElementById("0-0").innerHTML == "X" && document.getElementById("0-1").innerHTML == "X" && document.getElementById("0-2").innerHTML == "X") {
+    //     console.log("X is the winner")
+    //   }
+    // }
+    
+    // show winner //
+    
+    // function timeFunction() {
+    //   setTimeout(function(){ alert("After 5 seconds!"); }, 5000)}
+    
+    const checkForWin = () => {
+      if(horizontalWin() || verticalWin() || diagonalWin()) {
         window.alert(`Player ${currentMarker} won!`)
-        resetBoard()
-      } else {
-        changeMarker()
-      }
-}
+      resetBoard()
+    } else {
+      changeMarker()
+    }
+  }
 
 const horizontalWin = () => {
   if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
   || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
+) 
+{return true}
+
+  if((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") 
+  || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
 ) {return true}
+
+if((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") 
+  || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
+) {return true}
+
 }
 
 const verticalWin = () => {
   if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
   || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
 ) {return true}
+
+if((board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") 
+  || (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")
+) {return true}
+
+if((board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") 
+  || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")
+) {return true}
 }
 
 const diagonalWin = () => {
-  if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
-  || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+  if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X")
+  ||(board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+) {return true}
+
+if((board[2][0] == "X" && board[1][1] == "X" && board[0][2] == "X")
+  ||(board[2][0] == "O" && board[1][1] == "O" && board[0][2] == "O")
 ) {return true}
 }
