@@ -10,6 +10,7 @@ let jumbotron = document
 let currentMarker = 'X'
 const winner = document.getElementById('winning-text')
 const resetText = document.querySelector('#reset-text')
+let counterTurn = 1
 
 board = [
   ["","",""],
@@ -78,17 +79,21 @@ board = [
     const changeMarker = () => {
       if(currentMarker === "X"){
         currentMarker = "O"
-      } else if (currentMarker === 'O'){
-        currentMarker = "X"
       } else {
-        resetText.innerText = 'Game is a draw...'
+        currentMarker = "X"
+      } 
+      if(counterTurn == 10){
+        resetText.innerText = ''
+        return winner.innerText = "Game is a draw..."
       }
+
     }
     
     
     // This "resetBoard" function is called when the user clicks on the "Restart" button.
     const resetBoard = () => {
       currentMarker = "X" 
+      counterTurn = 1
       // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
       // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
       const squares = document.getElementsByTagName("TD")
@@ -134,6 +139,12 @@ board = [
         winner.innerText = `Player ${currentMarker} is the Winner!`
         resetText.innerText = ''
     } else {
+      counterTurn++
+      console.log(counterTurn, "********************")
+      // if(counterTurn == 10){
+      //   resetText.innerText = ''
+      //   return winner.innerText = "Game is a draw"
+      // }
       changeMarker()
     } 
   }
