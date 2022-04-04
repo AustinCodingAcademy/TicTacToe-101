@@ -36,6 +36,8 @@ const handleClick = (element) => {
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
   board[row][column] = currentMarker
+  const row = parseInt(element.id.charAt(0))
+  const column = parseInt(element.id.charAt(2))
   // @TODO-1: Open the console tab in your Chrome Inspector Tool and click on the top-left square to see what's logged to the console. 
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
