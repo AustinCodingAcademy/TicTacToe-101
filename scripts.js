@@ -7,7 +7,9 @@
     // next to each @TODO you will find tasks that need to be finished
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
-let currentMarker = 'X'
+let currentMarker = 'X';
+var board =[[],[]];
+console.log(board)
 
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
@@ -35,9 +37,11 @@ const handleClick = (element) => {
 
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
-  board[row][column] = currentMarker
-  const row = parseInt(element.id.charAt(0))
-  const column = parseInt(element.id.charAt(2))
+  const row = parseInt(id.charAt(0))
+  console.log(row)
+  const column = parseInt(id.charAt(2))
+  console.log(column)
+  board[row][column] = currentMarker;
   // @TODO-1: Open the console tab in your Chrome Inspector Tool and click on the top-left square to see what's logged to the console. 
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
