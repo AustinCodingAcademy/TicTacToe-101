@@ -56,7 +56,7 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
-  checkForWin();
+  setTimeout(()=>{checkForWin();}, 50);
 }
 
 
