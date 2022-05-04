@@ -50,7 +50,7 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
-
+document.getElementById(id).innerHTML = currentMarker
   changeMarker()
 }
 
@@ -83,24 +83,25 @@ const changeMarker = () => {
 
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
-  
+  const chips = document.getElementsByTagName("td");
+  console.log(chips)
   // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
-      // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
+      // collects all of the "td" chips into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
     
   // @TODO-3.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // squares
-  // .getElementsByTagName("TD")
+  // .getchipsByTagName("TD")
   // =
   // document
   // const
   
   // loops over the HTML Collection of TDs and clears out the Xs and Os
-  for (i=0; i < squares.length; i++) {
+  for (i=0; i < chips.length; i++) {
 
     // will log out the id of each square as it loops over them.
-    console.log(squares[i].id)
+    console.log(chips[i].id)
 
     // sets the innerHTML to null to replace the "X" or "O"
-    squares[i].innerHTML = null
+    chips[i].innerHTML = null
   }  
 }
