@@ -50,8 +50,8 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
-
-  changeMarker()
+if(!document.getElementById(element.id).innerHTML = currentMarker){
+  changeMarker(element.id)}
 }
 
 
