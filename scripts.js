@@ -7,6 +7,13 @@
     // next to each @TODO you will find tasks that need to be finished
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
+let board = [
+  [" "," ", " "],
+  [" ", " "," "],
+  [" "," "," "]
+]
+
+
 let currentMarker = 'X'
 
 
@@ -38,6 +45,11 @@ const handleClick = (element) => {
 
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
+  const row = parseInt(id.charAt(0))
+  const column = parseInt(id.charAt(2))
+  
+  board[row][column] = currentMarker
+  
 
   // @TODO-1: Open the console tab in your Chrome Inspector Tool and click on the top-left square to see what's logged to the console. 
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
@@ -50,8 +62,9 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
-
-  changeMarker()
+document.getElementById(id).innerHTML = currentMarker
+checkForWin() 
+// changeMarker()
 }
 
 
@@ -72,7 +85,68 @@ const changeMarker = () => {
   }
 }
 
+const horizontalWin = () => {
+  if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+        || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
+  ) {
+    return true
+  }
+  else if ((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") 
+  || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
+) {
+return true
+}
+else if ((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") 
+|| (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
+) {
+return true
+}
+  // Your code here to check for horizontal wins
+}
 
+const verticalWin = () => {
+  if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
+  || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
+){
+  return true
+}
+else if ((board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") 
+|| (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")
+) {
+return true
+  // Your code here to check for vertical wins
+}
+else if ((board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") 
+|| (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")
+) {
+return true
+}
+}
+const diagonalWin = () => {
+  if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
+  || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+){
+  return true
+}
+if((board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") 
+|| (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O")
+){
+return true
+}
+  // Your code here to check for diagonal wins
+}
+
+
+
+
+const checkForWin = () => {
+  console.log("heres the board", board)
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    window.alert(`Player ${currentMarker} won!`)
+  } else {
+    changeMarker()
+  }
+}
 
 
 
@@ -83,24 +157,33 @@ const changeMarker = () => {
 
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
-  
+  board =  [
+    [" "," ", " "],
+    [" ", " "," "],
+    [" "," "," "]
+  ]
+  const chips = document.getElementsByTagName("td");
+  console.log(chips)
   // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
-      // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
+      // collects all of the "td" chips into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
     
   // @TODO-3.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // squares
-  // .getElementsByTagName("TD")
+  // .getchipsByTagName("TD")
   // =
   // document
   // const
   
   // loops over the HTML Collection of TDs and clears out the Xs and Os
-  for (i=0; i < squares.length; i++) {
+  for (i=0; i < chips.length; i++) {
 
     // will log out the id of each square as it loops over them.
-    console.log(squares[i].id)
+    console.log(chips[i].id)
 
     // sets the innerHTML to null to replace the "X" or "O"
-    squares[i].innerHTML = null
+    chips[i].innerHTML = null
   }  
 }
+
+
+
