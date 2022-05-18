@@ -44,7 +44,7 @@ const addMarker = (id) => {
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
+  document.getElementById(id).innerHTML= currentMarker;
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
@@ -93,14 +93,14 @@ const resetBoard = () => {
   // =
   // document
   // const
-  
+  const elements = document.getElementsByTagName("td")
   // loops over the HTML Collection of TDs and clears out the Xs and Os
-  for (i=0; i < squares.length; i++) {
+  for (i=0; i < elements.length; i++) {
 
     // will log out the id of each square as it loops over them.
-    console.log(squares[i].id)
+    console.log(elements[i].id)
 
     // sets the innerHTML to null to replace the "X" or "O"
-    squares[i].innerHTML = null
+    elements[i].innerHTML = null
   }  
 }
