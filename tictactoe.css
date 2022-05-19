@@ -14,3 +14,7 @@ td {
 table {
   margin: auto auto;
 }
+
+.winner{
+  text-align: center;
+}
