@@ -1,4 +1,5 @@
 let currentMarker = 'X'
+let count = 0;
 
 const handleClick = (element) => {
 
@@ -18,6 +19,7 @@ const addMarker = (id) => {
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   document.getElementById(id).innerHTML = currentMarker;
   changeMarker()
+  checkWinner();
 }
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
@@ -27,6 +29,56 @@ const changeMarker = () => {
   } else {
     currentMarker = "X"
   }
+  count++;
+  console.log(count)
+}
+
+const checkWinner = () => {
+  let board = table_to_array();
+  console.log(board)
+  
+  if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+  || (board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X")
+  || (board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X")
+  || (board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X")
+  || (board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X")
+  || (board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X")
+  || (board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X")
+  || (board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X")){
+    console.log("X wins!");
+    document.getElementById("winner").innerHTML = "X wins!"
+  }
+  else if((board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O") 
+  || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
+  || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
+  || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
+  || (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")
+  || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")
+  || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+  || (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O")){
+    console.log("O wins!");
+    document.getElementById("winner").innerHTML = "O wins!"
+  }
+  else if(count == 9){
+    console.log("Tie!")
+    document.getElementById("winner").innerHTML = "Tie!"
+  }
+}
+
+const table_to_array = () => {
+  let tableRows = document.getElementsByTagName("TR");
+
+  let tableArray = [];
+
+  for (var i = 0; i < tableRows.length; i++) {
+          let cell = tableRows[i].children;
+          let cellValues = [];
+          for (var j = 0; j < cell.length; j++) {
+            cellValues.push(cell[j].innerHTML);
+          }
+          tableArray.push(cellValues);
+  }
+  return tableArray;
 }
 
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
@@ -35,7 +87,7 @@ const resetBoard = () => {
   let squares  = document.getElementsByTagName("TD"); 
   
   // loops over the HTML Collection of TDs and clears out the Xs and Os
-  for (i=0; i < squares.length; i++) {
+  for (let i=0; i < squares.length; i++) {
 
     // will log out the id of each square as it loops over them.
     console.log(squares[i].id)
@@ -43,4 +95,7 @@ const resetBoard = () => {
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
   }  
+
+  count = 0;
+  document.getElementById("winner").innerHTML = ""
 }
