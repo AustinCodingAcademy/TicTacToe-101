@@ -45,15 +45,17 @@ const addMarker = (id) => {
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
   
+
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
   // document
   // .innerHTML 
 
+  document.getElementById(id).innerHTML=currentMarker
+
   changeMarker()
 }
-
 
 
 
@@ -81,6 +83,7 @@ const changeMarker = () => {
 
 
 
+
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
   
@@ -93,6 +96,8 @@ const resetBoard = () => {
   // =
   // document
   // const
+
+  const squares = document.getElementsByTagName("td");
   
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
