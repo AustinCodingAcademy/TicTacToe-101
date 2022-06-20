@@ -1,16 +1,48 @@
 .jumbotron {
-  margin: 5% auto;
-  margin-left: 43%;
-}
-
-td {
-  height:150px;
-  width:150px;
-  text-align: center;
-  border: 5px solid black;
-  font-size: 100px;
-}
-
-table {
-  margin: auto auto;
-}
+    margin: 5% auto;
+    text-align: center; 
+  }
+  
+  td {
+    height:150px;
+    width:150px;
+    text-align: center;
+    border: 5px solid white;
+    font-size: 100px;
+    color:white;
+  }
+  
+  table {
+    margin: auto auto;
+  }
+  
+  button {
+  background-color: rgb(142, 87, 10);
+  padding:10px 10px 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  
+  }
+  
+  h1 {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background-color: white;
+  color: (142, 87, 10);
+  width:30%;
+  margin: auto;
+  
+  }
+  
+  p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:rgb(142, 87, 10);
+    font-size: larger;
+    background-color: white;
+    display: inline-block;
+  }
+  
+  body {
+  background-color: rgb(142, 87, 70);
+  }
+  
