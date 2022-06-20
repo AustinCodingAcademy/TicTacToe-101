@@ -6,11 +6,21 @@
 // 2. Look for the @TODOs, and figure out how to fix them.
     // next to each @TODO you will find tasks that need to be finished
 
+let board = [
+  ["", "", ""], //row1, index 0
+  ["", "", ""],  //row 2, index 1
+  ["", "", ""] //row 3, index 2
+ ] 
+
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = 'X'
 
+//'0-2' 0 is at index 0, dash is at index 1 and 2 is at index 2
 
+const row = parseInt(element.id.charAt(0))
+const column = parentInt(element.id.charAt (2))
 
+board[row][column] = currentMarker
 
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
@@ -25,16 +35,6 @@ const handleClick = (element) => {
     addMarker(element.id)
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
@@ -51,17 +51,11 @@ const addMarker = (id) => {
   // document
   // .innerHTML 
 
-  changeMarker()
+  document.getElementById(id).innerHTML=currentMarker
+
+  // changeMarker();
+  checkForWin()
 }
-
-
-
-
-
-
-
-
-
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
 const changeMarker = () => {
@@ -72,14 +66,13 @@ const changeMarker = () => {
   }
 }
 
-
-
-
-
-
-
-
-
+const checkForWin = () => {
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    window.alert(`Player ${currentMarker} won!`)
+  } else {
+    changeMarker()
+  }
+}
 
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
@@ -93,6 +86,8 @@ const resetBoard = () => {
   // =
   // document
   // const
+
+  const squares = document.getElementsByTagName("td");
   
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
@@ -104,3 +99,71 @@ const resetBoard = () => {
     squares[i].innerHTML = null
   }  
 }
+
+//  let board= [
+// ["0-0", "0-1", "0-2"],
+// ["1-0", "1-1", "1-2"],  
+// ["2-0", "2-1", "2-2"]
+//  ] 
+
+function horizontalWin() { //rows
+  if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+  || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O"))
+{return true}
+
+else if ((board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") 
+|| (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")) 
+{return true}
+
+else if ((board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") 
+|| (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O" ))
+{return true}
+
+else {
+  return false
+}
+}
+
+
+
+function verticalWin() { //columns
+  if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
+  || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O"))
+{return true}
+
+  else if((board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") 
+|| (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O"))
+{return true}
+
+  else if((board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") 
+|| (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O"))
+{return true}
+
+else
+ {return false}
+}
+
+
+
+function diagonalWin() { //diagonal
+  if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
+  || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O"))
+{return true}
+
+if((board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") 
+|| (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O"))
+{return true}
+
+else 
+{return false}
+} 
+
+
+
+// const checkForWin = () => {
+//   if(horizontalWin() || verticalWin() || diagonalWin()) {
+//     window.alert(`Player ${currentMarker} won!`)
+//   } else {
+//     changeMarker()
+//   }
+// }
