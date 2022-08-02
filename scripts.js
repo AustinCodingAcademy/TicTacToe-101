@@ -25,6 +25,18 @@ const handleClick = (element) => {
     addMarker(element.id)
   }
 }
+// const handleClickById = (id) => {
+
+//   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
+//   console.log(`The element you clicked on has an id:  ${id}`)
+
+//   // this next line prevents an X being changed to an O or an O being changed to an X by...
+//   //  checking to see if the square clicked has anything in it, if not continue
+//   if(!document.getElementById(id).innerHTML){
+//     addMarker(id)
+//   }
+// }
+
 
 
 
@@ -44,7 +56,7 @@ const addMarker = (id) => {
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
+  document.getElementById(id).innerHTML = currentMarker
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
@@ -82,24 +94,22 @@ const changeMarker = () => {
 
 
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
-const resetBoard = () => {
+const resetBoard = (button) => {
   
   // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
       // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
-    
+    const squares = document.getElementsByTagName('td') 
   // @TODO-3.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // squares
   // .getElementsByTagName("TD")
   // =
   // document
   // const
-  
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
 
     // will log out the id of each square as it loops over them.
     console.log(squares[i].id)
-
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
   }  
