@@ -26,8 +26,6 @@ const handleClick = (element) => {
 
   board[row][column] = currentMarker
 
-
-
   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
   console.log(`The element you clicked on has an id:  ${element.id}`)
 
