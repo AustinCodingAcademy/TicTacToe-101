@@ -50,7 +50,7 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
-
+  document.getElementById(id).innerHTML = currentMarker
   changeMarker()
 }
 
@@ -64,7 +64,7 @@ const addMarker = (id) => {
 
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
-const changeMarker = () => {
+const changeMarker = (id) => {
   if(currentMarker === "X"){
     currentMarker = "O"
   } else {
@@ -93,7 +93,7 @@ const resetBoard = () => {
   // =
   // document
   // const
-  
+  const squares = document.getElementsByTagName("TD")
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
 
