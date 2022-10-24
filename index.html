@@ -6,7 +6,7 @@
     <!-- link to CSS code -->
     <link rel="stylesheet" href="tictactoe.css">
     <!-- link to JavaScript code -->
-    <script src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -16,7 +16,7 @@
         <!-- uses the built-in onclick attribute to call the resetBoard function -->
         <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
       </div>
-      <table>
+      <table id="table">
         <tr>
           <!-- the onclick calls a function called "handleClick" and passes itself to it -->
           <td id='top-left' onclick="handleClick(this)" ></td>
@@ -36,6 +36,7 @@
         <!-- @TODO create new rows and cells for the rest of your TTT board. -->
         <!-- @TODO give each new cell an id & an event listener to call the "handleClick" function -->
       </table>
+      <div><h2 id="winnerHeading"></h2></div>
     </div>
   </body>
 </html>
