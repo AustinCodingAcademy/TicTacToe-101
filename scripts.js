@@ -43,9 +43,15 @@ const resetBoard = () => {
     console.log(squares[i].id)
     squares[i].innerHTML = null
   }
+  playBoard = [
+    ["", "", ""], // <-- Row 1, index 0
+    ["", "", ""], // <-- Row 2, index 1
+    ["", "", ""] // <-- Row 3, index 2
+  ];
 }
 // Checks board after every interaction for win-state
 const checkForWin = () => {
+  console.log(playBoard)
   if(horizontalWin() || verticalWin() || diagonalWin()) {
     window.alert(`Player ${currentMarker} won!`)
   } else {
