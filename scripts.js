@@ -14,9 +14,6 @@ let board = [
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = 'X'
 
-
-
-
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
 const handleClick = (element) => {
@@ -43,11 +40,13 @@ const element = document.getElementById(id)
 element.innerHTML = currentMarker
 
 
-  checkForWin()
+ 
 
 const row = parseInt(element.id.charAt(0))
 const column = parseInt(element.id.charAt(2)) 
+
 board[row][column] = currentMarker
+ checkForWin()
 }
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
@@ -98,7 +97,7 @@ const horizontalWin = () => {
     (board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") ||
     (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
   ) {
-    return true
+     return true
   }
   else if (
     (board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") ||
@@ -112,6 +111,7 @@ const horizontalWin = () => {
   ) {
     return true
   }
+  
 };
 
 
