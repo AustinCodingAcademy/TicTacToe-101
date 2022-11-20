@@ -33,15 +33,6 @@ const handleClick = (element) => {
 }
 
 
-
-
-
-
-
-
-
-
-
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
 
@@ -60,9 +51,6 @@ const addMarker = (id) => {
 }
 
 
-
-
-
 const changeMarker = () => {
   if (currentMarker === "X") {
     currentMarker = "O"
@@ -70,14 +58,6 @@ const changeMarker = () => {
     currentMarker = "X"
   }
 }
-
-
-
-
-
-
-
-
 
 
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
@@ -105,6 +85,7 @@ const resetBoard = () => {
 const checkForWin = () => {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     window.alert(`Player ${currentMarker} won!`)
+    window.location.reload()
   } else {
     changeMarker()
   }
