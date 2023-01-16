@@ -14,6 +14,9 @@ let currentMarker = 'X'
 
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
+
+// function handleClick(element){}
+
 const handleClick = (element) => {
 
   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
@@ -50,6 +53,15 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
+
+ document.getElementById(id).innerHTML = currentMarker;
+
+  /// first-part is where you put the value (holder)
+  // = is assigning into the holder whatever is on the right side
+
+  // holder = what I want to hold
+
+  // const squares = document.getElementsByTagName("TD")   <-- holding all the tds in squares
 
   changeMarker()
 }
@@ -94,6 +106,8 @@ const resetBoard = () => {
   // document
   // const
   
+const squares = document.getElementsByTagName("TD");
+
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
 
@@ -103,4 +117,5 @@ const resetBoard = () => {
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
   }  
+  currentMarker = 'X'
 }
