@@ -1,11 +1,18 @@
+body {
+  background-color: rgb(131, 207, 131);
+}
+
 .jumbotron {
   margin: 5% auto;
   margin-left: 43%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(66, 66, 231);
+
 }
 
 td {
-  height:150px;
-  width:150px;
+  height: 150px;
+  width: 150px;
   text-align: center;
   border: 5px solid black;
   font-size: 100px;
