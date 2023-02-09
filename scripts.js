@@ -21,7 +21,9 @@ const handleClick = (element) => {
 
   // this next line prevents an X being changed to an O or an O being changed to an X by...
   //  checking to see if the square clicked has anything in it, if not continue
+  console.log (document.getElementById(element.id).innerHTML', document.getElementById(element.id).innerHTML)
   if(!document.getElementById(element.id).innerHTML){
+
     addMarker(element.id)
   }
 }
@@ -44,7 +46,7 @@ const addMarker = (id) => {
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
+  document.getElementById (id).innerHTML=currentMarker
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
