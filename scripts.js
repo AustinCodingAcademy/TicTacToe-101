@@ -27,15 +27,6 @@ const handleClick = (element) => {
 }
 
 
-
-
-
-
-
-
-
-
-
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
 
@@ -50,6 +41,7 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
+document.getElementById(id).innerHTML = currentMarker
 
   changeMarker()
 }
