@@ -42,6 +42,8 @@ const addMarker = (id) => {
   // @TODO-1: Open the console tab in your Chrome Inspector Tool and click on the top-left square to see what's logged to the console. 
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
+
+ document.getElementById(id).innerHTML = currentMarker
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
   
@@ -51,7 +53,7 @@ const addMarker = (id) => {
   // document
   // .innerHTML 
 
-  changeMarker()
+  changeMarker(currentMarker)
 }
 
 
@@ -93,6 +95,10 @@ const resetBoard = () => {
   // =
   // document
   // const
+
+  const squares = document.getElementsByTagName("td");
+
+
   
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
