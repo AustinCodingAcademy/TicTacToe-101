@@ -8,6 +8,12 @@
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = "X";
+let board = [
+  ["","",""],
+  ["","",""],
+  ["","",""]
+]
+
 
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML.
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
@@ -22,7 +28,7 @@ const handleClick = (element) => {
     document.getElementById(element.id).innerHTML
   );
   if (!document.getElementById(element.id).innerHTML) {
-    addMarker(element.id);
+    addMarker(element.id); board[row][column] = currentMarker
   }
 };
 
@@ -35,6 +41,9 @@ const addMarker = (id) => {
   );
 
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
+const row = parseInt(id.charAT(0))
+const column = parseInt(id.charAt(2))
+
   document.getElementById(id).innerHTML = currentMarker;
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
