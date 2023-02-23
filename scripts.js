@@ -99,7 +99,15 @@ const diagonalWin = () => {
 };
 
 const resetBoard = () => {
+
+  board = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+  ];
+
   const squares = document.getElementsByTagName("TD");
+  
 
   for (i = 0; i < squares.length; i++) {
     console.log(squares[i].id);
