@@ -70,9 +70,8 @@ const changeMarker = () => {
   } else {
     currentMarker = "X"
   }
-  console.log('AFTER currentMarker:' ,currentMarker)
+  console.log('BEFORE currentMarker:' ,currentMarker)
 }
-// BEFORE
 
 
 
