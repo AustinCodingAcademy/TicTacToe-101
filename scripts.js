@@ -1,10 +1,12 @@
-//       ***********************
-//            INSTRUCTIONS
-//       ***********************
+// Go to the top your scripts.js file and create an array called board with three arrays inside of it. 
+// Each of these inner arrays should have three places held with empty quotes: "", separated by commas, ,.
 
-// 1. Read the code below one block at a time.
-// 2. Look for the @TODOs, and figure out how to fix them.
-    // next to each @TODO you will find tasks that need to be finished
+let board = [
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""]
+]
+;
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = 'X'
@@ -55,14 +57,6 @@ const addMarker = (id) => {
 }
 
 
-
-
-
-
-
-
-
-
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
 const changeMarker = () => {
   if(currentMarker === "X"){
@@ -71,14 +65,6 @@ const changeMarker = () => {
     currentMarker = "X"
   }
 }
-
-
-
-
-
-
-
-
 
 
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
@@ -105,3 +91,23 @@ const resetBoard = () => {
     squares[i].innerHTML = null
   }  
 }
+
+// Set of Rules
+
+// Horizontal Win, a.k.a, If row 0 equals all "X"s or "O"s:
+
+if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+|| (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
+)
+
+// Vertical Wins, a.k.a, if column 0 equals all "X"s or "O"s:
+
+if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
+|| (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
+)
+
+// Diagonal Wins, a.k.a, If there is a line created diagonally across the board with "X"s or with "O"s:
+
+if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
+|| (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+)
