@@ -7,18 +7,20 @@
     // next to each @TODO you will find tasks that need to be finished
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
-const board = [
+let board = [
   ["","",""],
   ["","",""],
   ["","",""]]
 let currentMarker = 'X'
+let turns = 0
+let gameOver = false
 
 const handleClick = (element) => {
 
   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
-  console.log(`The element you clicked on has an id:  ${element.id}`)
+  // console.log(`The element you clicked on has an id:  ${element.id}`)
 
-  if(!document.getElementById(element.id).innerHTML){
+  if((!document.getElementById(element.id).innerHTML) && (!gameOver)){
     addMarker(element.id)
   }
 }
@@ -37,6 +39,7 @@ const addMarker = (id) => {
   document.getElementById(id).innerHTML = currentMarker
   
   checkForWin()
+  turns ++
 }
 
 
@@ -59,19 +62,34 @@ const resetBoard = () => {
     const squares = document.getElementsByTagName("TD")
   
   for (i=0; i < squares.length; i++) {
-    console.log(squares[i].id)
+    // console.log(squares[i].id)
     squares[i].innerHTML = null
   }  
+  board = [
+    ["","",""],
+    ["","",""],
+    ["","",""]]
 
   currentMarker = "X"
+  gameOver = false
+  turns = 0
 }
 
 
 
 const checkForWin = () => {
   if(horizontalWin() || verticalWin() || diagonalWin()) {
-    window.alert(`Player ${currentMarker} won!`)
-  } else {
+    gameOver = true
+    
+    
+    setTimeout(function() {window.alert(`Player ${currentMarker} won! Click Restart to play again!`)}, 100)
+  } 
+  
+  else if(turns === 8){
+    gameOver = true
+    setTimeout(function() {window.alert('It is a tie! Click Restart to play again!')}, 100)
+  }
+  else {
     changeMarker()
    
   }
