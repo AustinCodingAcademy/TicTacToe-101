@@ -91,8 +91,8 @@ const diagonalWin = () => {
   ) {
     return true;
   } else if (
-    (board[2][2] == "X" && board[1][1] == "X" && board[1][1] == "X") ||
-    (board[2][2] == "O" && board[1][1] == "O" && board[1][1] == "O")
+    (board[2][2] == "X" && board[1][1] == "X" && board[0][0] == "X") ||
+    (board[2][2] == "O" && board[1][1] == "O" && board[0][0] == "O")
   ) {
     return true;
   }
