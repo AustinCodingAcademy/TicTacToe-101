@@ -25,7 +25,8 @@ const addMarker = (id) => {
 
   // changeMarker(document.getElementById(id).innerHTML = currentMarker)
 
-  checkForWin((document.getElementById(id).innerHTML = currentMarker));
+  document.getElementById(id).innerHTML = currentMarker;
+  checkForWin();
 };
 
 const checkForWin = () => {
