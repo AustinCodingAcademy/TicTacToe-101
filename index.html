@@ -3,6 +3,11 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&family=Montserrat:wght@100;300;400;500;600;700&family=Mulish:wght@300;400;700&family=Pacifico&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300&family=Quicksand:wght@300;400;500;600;700&family=Raleway:wght@100;300;400;500;600&display=swap"
+    rel="stylesheet">
   <title>Tic Tac Toe</title>
   <!-- link to CSS code -->
   <link rel="stylesheet" href="tictactoe.css">
@@ -18,7 +23,7 @@
       <!-- uses the built-in onclick attribute to call the resetBoard function -->
       <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
     </div>
-    <table>
+    <table class="xoxo">
       <tr>
         <!-- the onclick calls a function called "handleClick" and passes itself to it -->
         <td id='0-0' onclick="handleClick(this)"></td>
