@@ -37,6 +37,7 @@ button {
 
 
 td {
+  
   height: 150px;
   width: 150px;
   text-align: center;
@@ -51,6 +52,7 @@ table {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  margin-bottom: 70px;
 }
 
 
