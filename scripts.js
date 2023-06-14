@@ -1,3 +1,9 @@
+let board = [
+  ["", "", ""], // <-- Row 1, index 0
+  ["", "", ""], // <-- Row 2, index 1
+  ["", "", ""], // <-- Row 3, index 2
+];
+
 //       ***********************
 //            INSTRUCTIONS
 //       ***********************
@@ -36,12 +42,26 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML
+
   document.getElementById(id).innerHTML = currentMarker;
 
-  changeMarker();
+  // Therefore, a  "X"  should be placed in the square with the id:  0-0
+
+  // id: 0-0
+
+  // const row = id[0];
+  // const column = id[2];
+
+  const row = parseInt(id.charAt(0));
+  const column = parseInt(id.charAt(2));
+
+  board[row][column] = currentMarker;
+
+  checkForWin();
 };
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
+
 const changeMarker = () => {
   if (currentMarker === "X") {
     currentMarker = "O";
@@ -71,18 +91,58 @@ const resetBoard = () => {
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null;
   }
+  currentMarker = "X";
 };
 
-console.log(`hello world`);
-const arr1 = [1, 2, 3, 4];
-console.log(arr1.reverse().join(""));
-function reverseString(str) {
-  return str.split("").reverse().join("");
-}
-console.log(reverseString(`hello world`));
+const checkForWin = () => {
+  /*
+  handleClick
 
-document
-  .getElementsByClassName(".jumbotron")
-  .addEventListener("click", function (element) {
-    console.log(element);
-  });
+  */
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    window.alert(`Player ${currentMarker} won!`);
+  } else {
+    changeMarker();
+  }
+};
+
+const horizontalWin = () => {
+  if (
+    (board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") ||
+    (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O") ||
+    (board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") ||
+    (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O") ||
+    (board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") ||
+    (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
+  ) {
+    return true;
+  }
+  // Your code here to check for horizontal wins
+};
+
+const verticalWin = () => {
+  // Your code here to check for vertical wins
+  if (
+    (board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") ||
+    (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O") ||
+    (board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") ||
+    (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O") ||
+    (board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") ||
+    (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")
+  ) {
+    return true;
+  }
+};
+
+const diagonalWin = () => {
+  // Your code here to check for diagonal wins
+  // still need [2,0] === [1,1] === [0,2]
+  if (
+    (board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") ||
+    (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O") ||
+    (board[2][0] == "X" && board[1][1] == "X" && board[0][2] == "X") ||
+    (board[2][0] == "O" && board[1][1] == "O" && board[0][2] == "O")
+  ) {
+    return true;
+  }
+};
