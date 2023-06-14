@@ -8,7 +8,6 @@ body {
 
 .jumbotron {
   margin: 5% auto;
-  width: 50%;
   text-align: center;
 }
 
@@ -16,8 +15,8 @@ body {
 h1 {
   display: block;
   text-align: center;
-  padding: 0px;
-  margin: 0px 0px 20px 0px;
+  padding: 0;
+  margin: 0 0 20px 0;
   color: #b50965;
   font-family: 'Pacifico', cursive;
   font-size: 36px;
@@ -37,7 +36,6 @@ button {
 
 
 td {
-  
   height: 150px;
   width: 150px;
   text-align: center;
@@ -60,18 +58,10 @@ table {
   border-spacing: 10px;
 }
 
-@media screen and (max-width: 480px) {
-  .jumbotron {
-    width: 90%;
-  }
-
+@media (max-width: 480px) {
   table {
-    width: 90%;
-  }
-
-  td {
-    height: 80px;
-    width: 80px;
-    font-size: 60px;
+    width: 100%;
+    background-color: aqua;
+    color: aqua;
   }
 }

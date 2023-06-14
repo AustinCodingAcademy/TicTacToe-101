@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 let currentMarker = 'X';
 let board = [
   [null, null, null],
@@ -14,29 +6,17 @@ let board = [
   [null, null, null]
 ];
 
-
-
-
-
-
-
 const handleClick = (element) => {
-
-
 
   console.log(`The element you clicked on has an id:  ${element.id}`)
 
-
-
-  if (!document.getElementById(element.id).innerHTML) {
-    addMarker(element.id)
+  if (!element.innerHTML) {
+    addMarker(element.id);
   }
 
-  checkForWin()
+  checkForWin();
 
 };
-
-
 
 
 const checkForWin = () => {
@@ -45,7 +25,7 @@ const checkForWin = () => {
       window.alert(`Player ${currentMarker} won!`);
     }, 100);
   } else {
-    changeMarker()
+    changeMarker();
   }
 }
 
@@ -55,9 +35,9 @@ const horizontalWin = () => {
     (board[1][0] !== null && board[1][0] === board[1][1] && board[1][0] === board[1][2]) ||
     (board[2][0] !== null && board[2][0] === board[2][1] && board[2][0] === board[2][2])
   ) {
-    return true
+    return true;
   }
-  return false
+  return false;
 }
 
 const verticalWin = () => {
@@ -66,9 +46,9 @@ const verticalWin = () => {
     (board[0][1] !== null && board[0][1] === board[1][1] && board[0][1] === board[2][1]) ||
     (board[0][2] !== null && board[0][2] === board[1][2] && board[0][2] === board[2][2])
   ) {
-    return true
+    return true;
   }
-  return false
+  return false;
 }
 
 const diagonalWin = () => {
@@ -76,28 +56,17 @@ const diagonalWin = () => {
     (board[0][0] !== null && board[0][0] === board[1][1] && board[0][0] === board[2][2]) ||
     (board[2][0] !== null && board[2][0] === board[1][1] && board[2][0] === board[0][2])
   ) {
-    return true
+    return true;
   }
-  return false
+  return false;
 }
-
-
-
-
-
 
 
 const addMarker = (id) => {
 
 
-  console.log(`*** The current marker is:  ${currentMarker}. ***`)
-  console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
-
-
-
-
-
-
+  console.log(`*** The current marker is:  ${currentMarker}. ***`);
+  console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`);
 
 
   const values = id.split('-');
@@ -105,22 +74,22 @@ const addMarker = (id) => {
   const column = parseInt(values[1]);
 
   board[row][column] = currentMarker;
-  console.log('board', board[row][column], board)
+  console.log('board', board[row][column], board);
   document.getElementById(id).innerHTML = currentMarker;
 };
 
 const changeMarker = () => {
   if (currentMarker === "X") {
-    currentMarker = "O"
+    currentMarker = "O";
   } else {
-    currentMarker = "X"
+    currentMarker = "X";
   }
 };
 
 const resetBoard = () => {
   const squares = document.getElementsByTagName("td");
   for (i = 0; i < squares.length; i++) {
-    console.log(squares[i].id)
+    console.log(squares[i].id);
     squares[i].innerHTML = '';
     board = [
       [null, null, null],
@@ -129,6 +98,4 @@ const resetBoard = () => {
     ];
   }
 };
-
-// start TTT-Logic
 
