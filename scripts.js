@@ -1,7 +1,3 @@
-//       ***********************
-//            INSTRUCTIONS
-//       ***********************
-
 // 1. Read the code below one block at a time.
 // 2. Look for the @TODOs, and figure out how to fix them.
     // next to each @TODO you will find tasks that need to be finished
@@ -44,12 +40,12 @@ const addMarker = (id) => {
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
+document.getElementById(id).innerHTML = currentMarker
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
-  // = currentMarker
-  // .getElementById(id)
-  // document
-  // .innerHTML 
+   //= currentMarker
+   //.getElementById(id)
+   //document
+   //.innerHTML 
 
   changeMarker()
 }
@@ -86,7 +82,7 @@ const resetBoard = () => {
   
   // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
       // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
-    
+    const squares = document.getElementsByTagName("TD")
   // @TODO-3.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // squares
   // .getElementsByTagName("TD")
