@@ -16,7 +16,7 @@ h1 {
   display: block;
   text-align: center;
   padding: 0;
-  margin: 0 0 20px 0;
+  margin-bottom: 5%;
   color: #b50965;
   font-family: 'Pacifico', cursive;
   font-size: 36px;
@@ -58,10 +58,48 @@ table {
   border-spacing: 10px;
 }
 
-@media (max-width: 480px) {
-  table {
-    width: 100%;
-    background-color: aqua;
-    color: aqua;
+@media (max-width: 500px) {
+
+  .jumbotron {
+    margin: 2% 0;
+    text-align: center;
+  }
+
+  .xoxo {
+    border-spacing: 4px;
+  }
+
+  body {
+    margin-left: 1px;
+    margin-right: 1px;
   }
 }
+
+@media (max-width: 450px) {
+  td {
+    height: 140px;
+    width: 140px;
+  }
+
+  table {
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  td {
+    height: 120px;
+    width: 120px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+}
+/* 
+@media (max-width: 410px) {
+  td {
+    height: 100px;
+    width: 100px;
+  }
+} */
