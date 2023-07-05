@@ -100,3 +100,5 @@ const resetBoard = () => {
     squares[i].innerHTML = null
   }  
 }
+
+//need check for win
