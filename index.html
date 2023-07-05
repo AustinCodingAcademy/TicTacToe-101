@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Tic Tac Toe</title>
-    <!-- link to CSS code -->
-    <link rel="stylesheet" href="tictactoe.css">
-    <!-- link to JavaScript code -->
-    <script src="scripts.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="jumbotron">
-        <h1>Welcome to Tic Tac Toe</h1>
-        <p>Get ready to play!</p>
-        <!-- uses the built-in onclick attribute to call the resetBoard function -->
-        <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
-      </div>
-      <table>
-        <tr>
-          <!-- the onclick calls a function called "handleClick" and passes itself to it -->
-          <td id='top-left' onclick="handleClick(this)" ></td>
-          <td id='top-middle'></td>
-          <td></td>
-        </tr>
-        <!-- @TODO create new rows and cells for the rest of your TTT board. -->
-        <!-- @TODO give each new cell an id & an event listener to call the "handleClick" function -->
-      </table>
-    </div>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&family=Montserrat:wght@100;300;400;500;600;700&family=Mulish:wght@300;400;700&family=Pacifico&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300&family=Quicksand:wght@300;400;500;600;700&family=Raleway:wght@100;300;400;500;600&display=swap"
+    rel="stylesheet">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="tictactoe.css">
+</head>
+
+<body>
+  <div class="jumbotron">
+    <h1>Welcome to Tic Tac Toe</h1>
+    <p>Get ready to play!</p>
+    <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
+  </div>
+  <table class="xoxo">
+    <tr>
+      <td id='0-0' onclick="handleClick(this)"></td>
+      <td id='0-1' onclick="handleClick(this)"></td>
+      <td id='0-2' onclick="handleClick(this)"></td>
+    </tr>
+    <tr>
+      <td id='1-0' onclick="handleClick(this)"></td>
+      <td id='1-1' onclick="handleClick(this)"></td>
+      <td id='1-2' onclick="handleClick(this)"></td>
+    </tr>
+    <tr>
+      <td id='2-0' onclick="handleClick(this)"></td>
+      <td id='2-1' onclick="handleClick(this)"></td>
+      <td id='2-2' onclick="handleClick(this)"></td>
+    </tr>
+  </table>
+  <script src="scripts.js"></script>
+
+</body>
+
 </html>

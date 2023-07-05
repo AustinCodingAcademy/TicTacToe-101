@@ -1,16 +1,105 @@
-.jumbotron {
-  margin: 5% auto;
-  margin-left: 43%;
+body {
+  background-color: #e9e3e3;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: #646464;
 }
 
-td {
-  height:150px;
-  width:150px;
+.jumbotron {
+  margin: 5% auto;
   text-align: center;
-  border: 5px solid black;
+}
+
+
+h1 {
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin-bottom: 5%;
+  color: #b50965;
+  font-family: 'Pacifico', cursive;
+  font-size: 36px;
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #b50965;
+  border-style: none;
+  border-radius: 5%;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 10px 10px 20px #00000033;
+}
+
+
+td {
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  border-radius: 5%;
+  box-shadow: 10px 10px 20px #00000033;
   font-size: 100px;
+  background-color: white;
+  margin: 0 auto;
 }
 
 table {
-  margin: auto auto;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 70px;
 }
+
+
+.xoxo {
+  border-spacing: 10px;
+}
+
+@media (max-width: 500px) {
+
+  .jumbotron {
+    margin: 2% 0;
+    text-align: center;
+  }
+
+  .xoxo {
+    border-spacing: 4px;
+  }
+
+  body {
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+}
+
+@media (max-width: 450px) {
+  td {
+    height: 140px;
+    width: 140px;
+  }
+
+  table {
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  td {
+    height: 120px;
+    width: 120px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+}
+/* 
+@media (max-width: 410px) {
+  td {
+    height: 100px;
+    width: 100px;
+  }
+} */
