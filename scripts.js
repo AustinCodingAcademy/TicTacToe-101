@@ -18,9 +18,11 @@ const handleClick = (element) => {
 
   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
   console.log(`The element you clicked on has an id:  ${element.id}`)
+  console.log('element:', element)
 
   // this next line prevents an X being changed to an O or an O being changed to an X by...
   //  checking to see if the square clicked has anything in it, if not continue
+console.log('!document.getElementById(element.id).innerHTML', !document.getElementById(element.id).innerHTML)
   if(!document.getElementById(element.id).innerHTML){
     addMarker(element.id)
   }
@@ -38,13 +40,17 @@ const handleClick = (element) => {
 
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
+  console.log('inside addMarker id:', id)
 
   // @TODO-1: Open the console tab in your Chrome Inspector Tool and click on the top-left square to see what's logged to the console. 
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  
+  // ger element
+  document.getElementById(id).innerHTML = currentMarker
+  // get the element innerHTML
+  // element.innerHTML = currentMarker
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
   // .getElementById(id)
@@ -65,9 +71,12 @@ const addMarker = (id) => {
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
 const changeMarker = () => {
+  console. log('IN CHANGMARKER currentMarker:', currentMarker)
   if(currentMarker === "X"){
+    console.log('hello changing to O')
     currentMarker = "O"
   } else {
+    console.log('hello changing to X')
     currentMarker = "X"
   }
 }
