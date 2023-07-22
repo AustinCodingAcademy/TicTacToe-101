@@ -18,7 +18,7 @@
 1. After you have a general understanding find the `// @TODO` comments and fix the problems described.
 1. Go to the HTML file and create all the rows you need for a complete Tic Tac Toe board.
 1. When you've finished create a Pull Request (*PR*) on the original repo and turn in the URL of that PR.
-
+1. could not find error.
 *******
 
 ## Follow-Up Video
