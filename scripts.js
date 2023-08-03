@@ -7,6 +7,8 @@
     // next to each @TODO you will find tasks that need to be finished
 
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
+Array("", "", "", )
+
 let currentMarker = 'X'
 
 
@@ -14,7 +16,7 @@ let currentMarker = 'X'
 
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
-const handleClick = (element) => {
+const handleClick = (element) => 
 
   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
   console.log(`The element you clicked on has an id:  ${element.id}`)
@@ -24,13 +26,6 @@ const handleClick = (element) => {
   if(!document.getElementById(element.id).innerHTML){
     addMarker(element.id)
   }
-}
-
-
-
-
-
-
 
 
 
