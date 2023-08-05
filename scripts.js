@@ -48,7 +48,7 @@ const addMarker = (id) => {
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
-  document.getElementById(id).innerHTML= currentMarker
+document.getElementById(id).innerHTML= currentMarker
 board[row][column]= currentMarker
 console.log(board)
 checkForWin()
@@ -106,7 +106,7 @@ const resetBoard = () => {
 }
 
 const checkForWin= ()=>{
-  if (horizontalWin()|| verticleWin()) {
+  if (horizontalWin()|| verticleWin()|| diagonalWin()){
     window.alert(`Player ${currentMarker} Won`)
   }
   else {
@@ -136,3 +136,13 @@ const verticleWin= ()=> {
     return true
    }
    }
+
+   const diagonalWin= ()=> {
+    if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
+    || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+    || (board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X")
+    || (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O")
+   ){
+   return true
+  }
+}
