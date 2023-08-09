@@ -1,16 +1,75 @@
-.jumbotron {
-  margin: 5% auto;
-  margin-left: 43%;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
 }
 
-td {
-  height:150px;
-  width:150px;
+.jumbotron {
   text-align: center;
-  border: 5px solid black;
-  font-size: 100px;
+  margin-bottom: 20px;
+  width: 400px;
 }
 
 table {
-  margin: auto auto;
+  border-collapse: collapse;
+  width: 300px;
+  height: 300px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+td {
+  width: 33.33%;
+  height: 33.33%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+td:hover {
+  background-color: #f0f0f0;
+}
+
+.top-left, .middle-left, .bottom-left {
+  border-left: none;
+}
+
+.top-left, .top-middle, .top-right {
+  border-top: none;
+}
+
+.btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-15px);
+  }
+  60% {
+      transform: translateY(-7px);
+  }
+}
+
+.bounce-effect {
+  animation: bounce 1s;
 }
