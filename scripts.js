@@ -10,11 +10,10 @@
 let currentMarker = 'X'
 
 let board = [
-  "", "", "",
-  "", "", "",
-  "", "", ""
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""]
 ]
-
 
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
@@ -32,13 +31,11 @@ const handleClick = (element) => {
 
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
-  let currentMarker = Math.random() < 0.5 ? "X" : "O"
 
   const row = parseInt(id.charAt(0))
   const column = parseInt(id.charAt(2))
   board[row][column] = currentMarker
 
-  checkForWin()
   // @TODO-1: Open the console tab in your Chrome Inspector Tool and click on the top-left square to see what's logged to the console. 
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
@@ -50,7 +47,8 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
-
+  
+  checkForWin()
 }
 
 // This "changeMarker" function changes "X" to "O" in the "currentMarker" variable or "O" to "X"
@@ -83,45 +81,42 @@ const resetBoard = () => {
     squares[i].innerHTML = null
     console.log("Board has been reset!")
   }
+
+  //Reset board array
+  board = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""]
+  ]
+
+  console.log("Board has been reset!")
 }
 
 const checkForWin = () => {
   if(horizontalWin() || verticalWin() || diagonalWin()) {
-    alert(`Player ${currentMarker} won!`)
+    window.alert(`Player ${currentMarker} won!`)
   } else {
     changeMarker()
   }
 }
 
 const horizontalWin = () => {
-  if (board[0][0] === currentMarker && board[0][1] === currentMarker && board[0][2] === currentMarker) {
-    return true;
-  }
-  if (board[1][0] === currentMarker && board[1][1] === currentMarker && board[1][2] === currentMarker) {
-    return true;
-  }
-  if (board[2][0] === currentMarker && board[2][1] === currentMarker && board[2][2] === currentMarker) {
-    return true;
-  }
+  return (
+    (board[0][0] === currentMarker && board[0][1] === currentMarker && board[0][2] === currentMarker) ||
+    (board[1][0] === currentMarker && board[1][1] === currentMarker && board[1][2] === currentMarker) || 
+    (board[2][0] === currentMarker && board[2][1] === currentMarker && board[2][2] === currentMarker)
+  )
 }
-
 const verticalWin = () => {
-  if (board[0][0] === currentMarker && board[1][0] === currentMarker && board[2][0] === currentMarker) {
-    return true;
-  }
-  if (board[0][1] === currentMarker && board[1][1] === currentMarker && board[2][1] === currentMarker) {
-    return true;
-  }
-  if (board[0][2] === currentMarker && board[1][2] === currentMarker && board[2][2] === currentMarker) {
-    return true;
-  }
+  return (
+    (board[0][0] === currentMarker && board[1][0] === currentMarker && board[2][0] === currentMarker) ||
+    (board[0][1] === currentMarker && board[1][1] === currentMarker && board[2][1] === currentMarker) ||
+    (board[0][2] === currentMarker && board[1][2] === currentMarker && board[2][2] === currentMarker)
+  )
 }
-
 const diagonalWin = () => {
-  if (board[0][0] === currentMarker && board[1][1] === currentMarker && board[2][2] === currentMarker) {
-    return true;
-  }
-  if (board[0][2] === currentMarker && board[1][1] === currentMarker && board[2][0] === currentMarker) {
-    return true;
-  }
+  return (
+    (board[0][0] === currentMarker && board[1][1] === currentMarker && board[2][2] === currentMarker) ||
+    (board[0][2] === currentMarker && board[1][1] === currentMarker && board[2][0] === currentMarker)
+  )
 }
