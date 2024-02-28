@@ -94,7 +94,9 @@ const resetBoard = () => {
 
 const checkForWin = () => {
   if(horizontalWin() || verticalWin() || diagonalWin()) {
-    window.alert(`Player ${currentMarker} won!`)
+    setTimeout(() => {
+      window.alert(`Player ${currentMarker} won!`)
+    }, 100);
   } else {
     changeMarker()
   }
