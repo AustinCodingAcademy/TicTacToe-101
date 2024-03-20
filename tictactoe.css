@@ -1,6 +1,36 @@
+body {
+  background-color: rgb(47, 147, 0);
+}
+
 .jumbotron {
   margin: 5% auto;
-  margin-left: 43%;
+  /* margin-left: 43%; */
+  text-align: center;
+}
+
+.jumbotron h1 {
+  font-family: 'Honk', system-ui;
+  font-size: 100px;
+}
+
+.jumbotron p {
+  font-family: 'Poor Story', system-ui;
+  font-size: 50px;
+}
+
+.reset-button button {
+  font-size: 50px;
+  font-family: 'Poor Story', system-ui;
+  border: none;
+  outline: none;
+  color: black;
+  background-color: transparent;
+}
+
+.reset-button button:hover {
+  cursor: pointer;
+  font-size: 55px;
+  color: blue;
 }
 
 td {
@@ -9,6 +39,7 @@ td {
   text-align: center;
   border: 5px solid black;
   font-size: 100px;
+  font-family: Arial, sans-serif
 }
 
 table {
